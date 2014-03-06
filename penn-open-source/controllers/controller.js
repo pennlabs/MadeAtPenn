@@ -2,6 +2,7 @@ var Project = require('../models/projects').Project;
 var Tag = require('../models/tag').Tag;
 var mongoose = require('mongoose');
 var async = require("async");
+ObjectId = mongoose.Types.ObjectId
 
 exports.index = function(req, res) {
 	console.log("reached");
@@ -14,6 +15,7 @@ exports.index = function(req, res) {
 	})
 };
 
+
 exports.admin = function(req, res) {
 	console.log("reached");
 	Project.list(function (err, projects) {
@@ -24,7 +26,6 @@ exports.admin = function(req, res) {
 		}
 	})
 };
-
 
 exports.filter_by_tag = function(req, res) {
 	console.log("filtering");
@@ -53,6 +54,40 @@ exports.filter_by_tag = function(req, res) {
 	});
 }
 
+exports.edit = function(req, res) {
+		Project.queryById(req.params.id, function(err, project) {
+			return res.render("edit.ejs", {projects: project[0]});
+		});
+	}
+
+exports.update_project = function(req, res) {
+
+	updates = {
+		description : req.body.description,
+		demo_link : req.body.demo,
+		location : req.body.location,
+		technologies : req.body.technologies,
+		tags : req.body.tags,
+		builders : req.body.builders,
+		date : req.body.date,
+		contact : req.body.contact,
+		github_permis : req.body.github_permis,
+		github : req.body.github,
+		personal : req.body.personal,
+		approved : req.body.approved,
+	}
+	console.log("ID: " + req.body.id);
+	var options = {upsert: true};
+
+	Project.findOneAndUpdate({"_id": new ObjectId(req.body.id)}, updates, options, function(err, data) {
+		console.log(data);
+		if(!err) {
+			res.send("Worked");
+		} 
+		res.send(err);
+	}); 
+}
+
 exports.search_tags = function(req, res) {
 	console.log(req.params.tag);
 	var tag_name = req.params.tag;
@@ -66,13 +101,18 @@ exports.search_tags = function(req, res) {
 	});
 }
 
+exports.search_findOne = function(req, res) {
+	var id = req.params.id;
+	Project.queryById(id, function(err, project){
+		return res.send(project);
+	});
+}
+
 exports.submit = function(req, res) {
 	res.render("submit.ejs", {error: "lalal"});
 }
 
 exports.create = function(req, res) {
-	console.log(req.body);
-	console.log(res.body);
 	var project = new Project({
 		app_name : req.body.app_name,
 		description : req.body.description,

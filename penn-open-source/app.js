@@ -14,11 +14,15 @@ app.use(express.logger("default"));
 app.listen(3000);
 
 app.get("/", controller.index);
+app.get("/edit/:id", controller.edit);
 app.get("/admin", controller.admin);
 app.get("/submit", controller.submit);
 app.get("/tag/:tag", controller.filter_by_tag);
 app.post("/post", controller.create);
 app.get("/search/:tag", controller.search_tags);
+app.get("/searchOne/:id", controller.search_findOne);
+app.post("/update", controller.update_project);
+
 
 
 console.log("Listening on port 3000");

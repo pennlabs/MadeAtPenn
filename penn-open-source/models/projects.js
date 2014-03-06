@@ -35,6 +35,7 @@ var ProjectSchema = new Schema({
   submittedAt : {type: Date, default: Date.now}
 })
 
+
 ProjectSchema.statics = {
 	list: function (cb) {
 		this.find().exec(cb);
@@ -42,6 +43,10 @@ ProjectSchema.statics = {
 	queryMultipleByName: function(arr_projects, cb) {
 		this.find({app_name: {$in: arr_projects}}).exec(cb);
 	},
+
+	queryById: function(id, cb) {
+		this.find({_id: id}).exec(cb);
+	}
 }
 
 var project = mongoose.model("Project", ProjectSchema);

@@ -16,7 +16,8 @@
   
        <!-- fix this to make it approved == 1 -->
         <% if (project.approved == 0) { %>
-              <div class="project">
+          <% console.log(project._id) %>
+              <div class="project" id= <%= project._id %> >
                 <h2> <a href=<%= project.demo_link %>> <%= project.app_name %> </a></h2>
                 <p> <%= project.description %> </p>
                 <p> built by: <%= project.builders %>, at <%= project.location %> </p>
@@ -32,6 +33,7 @@
                   <a href =  <%= '/tag/' + array[i].trim() %> > <%= array[i] %></a>  
                   <% } %>
                 </p>
+             <a href = /edit/<%= project._id %> >Edit </a>
               </div>
         <% } %> 
     <% }) %>
