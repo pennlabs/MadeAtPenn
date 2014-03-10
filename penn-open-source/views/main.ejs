@@ -14,9 +14,12 @@
     <% projects.forEach(function(project, index){ %>
   
        <!-- fix this to make it approved == 1 -->
-        <% if (project.approved == 0) { %>
+        <% if (project.approved == 1) { %>
               <div class="project" id= <%= project._id %> >
                 <h2> <a href=<%= project.demo_link %>> <%= project.app_name %> </a></h2>
+                <div id="app_image">
+               <img width='200px' height='200px' src= <%= "https://s3-us-west-2.amazonaws.com/penn-open-source/images/" + project._id + ".jpg" %> />
+                </div>
                 <p> <%= project.description %> </p>
                 <p> built by: <%= project.builders %>, at <%= project.location %> </p>
                     <% if (project.github_permis == 'yes') { %>

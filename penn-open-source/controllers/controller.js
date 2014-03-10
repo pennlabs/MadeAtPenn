@@ -43,7 +43,7 @@ exports.upload = function(req, res) {
 				return res.send(404);
 			} else { 
 				console.log('Uploaded to Amazon S3');
-				return res.send(200);
+				return res.redirect('/');
 			}		
 		});
 	});
@@ -65,7 +65,6 @@ exports.admin = function(req, res) {
 exports.submit = function(req, res) {
 	res.render("submit.ejs", {error: "lalal"});
 }
-
 
 //Page: filters images by tag
 exports.filter_by_tag = function(req, res) {
@@ -125,7 +124,7 @@ exports.update_project = function(req, res) {
 
 	Project.findOneAndUpdate({"_id": new ObjectId(req.body.id)}, updates, options, function(err, data) {
 		if(!err) {
-			res.redirect("/searchOne/" + req.body.id);
+			res.redirect("/");
 		} 
 		res.send(err);
 	}); 
