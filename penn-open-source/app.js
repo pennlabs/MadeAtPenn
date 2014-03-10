@@ -8,7 +8,8 @@ var controller = require('./controllers/controller.js');
 
 app.use(express.bodyParser())
    .use(express.methodOverride())
-   .use(app.router);
+   .use(app.router)
+   .use(express.multipart());
 
 app.use(express.logger("default"));
 app.listen(3000);
@@ -22,7 +23,8 @@ app.post("/post", controller.create);
 app.get("/search/:tag", controller.search_tags);
 app.get("/searchOne/:id", controller.search_findOne);
 app.post("/update", controller.update_project);
-
+app.get("/image_upload/:id", controller.upload_page);
+app.post("/upload", controller.upload);
 
 
 console.log("Listening on port 3000");

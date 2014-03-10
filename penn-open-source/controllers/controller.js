@@ -2,10 +2,21 @@ var Project = require('../models/projects').Project;
 var Tag = require('../models/tag').Tag;
 var mongoose = require('mongoose');
 var async = require("async");
-ObjectId = mongoose.Types.ObjectId
+var knox = require('knox');
+var fs=require('fs');
+var sys=require('sys');
 
+
+var client = knox.createClient({
+	key: 'AKIAJ5CH34YLF3NAGJJA',
+	secret: '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',
+	bucket: 'penn-open-source'
+});
+
+var ObjectId = mongoose.Types.ObjectId;
+
+//Page: homepage
 exports.index = function(req, res) {
-	console.log("reached");
 	Project.list(function (err, projects) {
 		if(err) {
 			return res.send(404);
@@ -15,9 +26,32 @@ exports.index = function(req, res) {
 	})
 };
 
+//Page image upload page
+exports.upload_page = function(req, res) {
+	res.render("image.ejs", {id: req.params.id});
+};
 
+exports.upload = function(req, res) {
+		var id = req.body.id;
+		console.log(id);
+		fs.readFile(req.files.image.path, function(err, data) {
+			console.log(req.files.image.path);
+			client.putFile(req.files.image.path, 'images/' + id + ".jpg", {'Content-Type': 'image/jpeg', 'x-amz-acl':'public-read'}, function(err, result) {
+				if (err) { 
+					console.log('Failed to upload file to Amazon S3'); 
+					console.log(err);
+				return res.send(404);
+			} else { 
+				console.log('Uploaded to Amazon S3');
+				return res.send(200);
+			}		
+		});
+	});
+};
+
+
+//Page: admin page
 exports.admin = function(req, res) {
-	console.log("reached");
 	Project.list(function (err, projects) {
 		if(err) {
 			return res.send(404);
@@ -27,9 +61,14 @@ exports.admin = function(req, res) {
 	})
 };
 
+//Page: submit page
+exports.submit = function(req, res) {
+	res.render("submit.ejs", {error: "lalal"});
+}
+
+
+//Page: filters images by tag
 exports.filter_by_tag = function(req, res) {
-	console.log("filtering");
-	console.log(req.params.tag);
 	var tag_name = req.params.tag;
 	Tag.list(tag_name, function(err, project_names) {
 		if(err) {
@@ -54,15 +93,21 @@ exports.filter_by_tag = function(req, res) {
 	});
 }
 
+//opens edit page for a single project
 exports.edit = function(req, res) {
 		Project.queryById(req.params.id, function(err, project) {
 			return res.render("edit.ejs", {projects: project[0]});
 		});
 	}
 
+
+/*--------------  Helper functions ----------- */
+
+//handles update for an edit page
 exports.update_project = function(req, res) {
 
 	updates = {
+		app_name : req.body.app_name,
 		description : req.body.description,
 		demo_link : req.body.demo,
 		location : req.body.location,
@@ -76,31 +121,29 @@ exports.update_project = function(req, res) {
 		personal : req.body.personal,
 		approved : req.body.approved,
 	}
-	console.log("ID: " + req.body.id);
 	var options = {upsert: true};
 
 	Project.findOneAndUpdate({"_id": new ObjectId(req.body.id)}, updates, options, function(err, data) {
-		console.log(data);
 		if(!err) {
-			res.send("Worked");
+			res.redirect("/searchOne/" + req.body.id);
 		} 
 		res.send(err);
 	}); 
 }
 
+//for autocomplete in tags
 exports.search_tags = function(req, res) {
-	console.log(req.params.tag);
 	var tag_name = req.params.tag;
 	Tag.search(tag_name, function(err, tag_names) {
 		if(err) {
 			return res.send(404);
 		} else {
-			console.log(tag_names);
 			return res.send('options.ejs', {elements: tag_names});
 		}
 	});
 }
 
+//finds single project based on id
 exports.search_findOne = function(req, res) {
 	var id = req.params.id;
 	Project.queryById(id, function(err, project){
@@ -108,10 +151,8 @@ exports.search_findOne = function(req, res) {
 	});
 }
 
-exports.submit = function(req, res) {
-	res.render("submit.ejs", {error: "lalal"});
-}
 
+//creates new project
 exports.create = function(req, res) {
 	var project = new Project({
 		app_name : req.body.app_name,
@@ -132,7 +173,6 @@ exports.create = function(req, res) {
 	project.save(function(err, proj) {
 		if(err) {console.log(err)}
 		else {
-			console.log("saved");
 			var tags = req.body.tags.split(/,| /);
 			async.each(tags, function(tag_name, callback) {
 				var tag = new Tag({

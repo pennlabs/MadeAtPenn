@@ -11,12 +11,10 @@
   </head>
 
   <body>
-    <% console.log(projects) %>
     <% projects.forEach(function(project, index){ %>
   
        <!-- fix this to make it approved == 1 -->
         <% if (project.approved == 0) { %>
-          <% console.log(project._id) %>
               <div class="project" id= <%= project._id %> >
                 <h2> <a href=<%= project.demo_link %>> <%= project.app_name %> </a></h2>
                 <p> <%= project.description %> </p>
@@ -29,7 +27,6 @@
                   <% var array = project.tags.split(","); %>
 
                   <% for(var i=0; i<array.length; i++) { %>
-                  <% console.log(array[i]) %>
                   <a href =  <%= '/tag/' + array[i].trim() %> > <%= array[i] %></a>  
                   <% } %>
                 </p>
