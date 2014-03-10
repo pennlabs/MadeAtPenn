@@ -8,8 +8,8 @@ var sys=require('sys');
 
 
 var client = knox.createClient({
-	key: 'AKIAJ5CH34YLF3NAGJJA',
-	secret: '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',
+	key: 'AKIAJ5CH34YLF3NAGJJA-t',
+	secret: '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-t',
 	bucket: 'penn-open-source'
 });
 
@@ -26,28 +26,11 @@ exports.index = function(req, res) {
 	})
 };
 
-//Page image upload page
+//Page: image upload page
 exports.upload_page = function(req, res) {
 	res.render("image.ejs", {id: req.params.id});
 };
 
-exports.upload = function(req, res) {
-		var id = req.body.id;
-		console.log(id);
-		fs.readFile(req.files.image.path, function(err, data) {
-			console.log(req.files.image.path);
-			client.putFile(req.files.image.path, 'images/' + id + ".jpg", {'Content-Type': 'image/jpeg', 'x-amz-acl':'public-read'}, function(err, result) {
-				if (err) { 
-					console.log('Failed to upload file to Amazon S3'); 
-					console.log(err);
-				return res.send(404);
-			} else { 
-				console.log('Uploaded to Amazon S3');
-				return res.redirect('/');
-			}		
-		});
-	});
-};
 
 
 //Page: admin page
@@ -101,6 +84,28 @@ exports.edit = function(req, res) {
 
 
 /*--------------  Helper functions ----------- */
+
+
+//handles upload function
+exports.upload = function(req, res) {
+		var id = req.body.id;
+		console.log(id);
+		fs.readFile(req.files.image.path, function(err, data) {
+			console.log(req.files.image.path);
+			client.putFile(req.files.image.path, 'images/' + id + ".jpg", {'Content-Type': 'image/jpeg', 'x-amz-acl':'public-read'}, function(err, result) {
+				if (err) { 
+					console.log('Failed to upload file to Amazon S3'); 
+					console.log(err);
+				return res.send(404);
+			} else { 
+				console.log('Uploaded to Amazon S3');
+				return res.redirect('/');
+			}		
+		});
+	});
+};
+
+
 
 //handles update for an edit page
 exports.update_project = function(req, res) {
