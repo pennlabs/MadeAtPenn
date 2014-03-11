@@ -5,15 +5,16 @@ var async = require("async");
 var knox = require('knox');
 var fs=require('fs');
 var sys=require('sys');
+var credentials = require("../config.json");
 
 
 var client = knox.createClient({
-	key: 'AKIAJ5CH34YLF3NAGJJA-t',
-	secret: '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-t',
+	key: credentials.accessKeyId,
+	secret: credentials.secretAccessKey,
 	bucket: 'penn-open-source'
 });
 
-var ObjectId = mongoose.Types.ObjectId;
+var ObjectId= mongoose.Types.ObjectId;
 
 //Page: homepage
 exports.index = function(req, res) {
