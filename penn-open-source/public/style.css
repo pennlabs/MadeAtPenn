@@ -1,0 +1,132 @@
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+  margin:0;
+  padding:0;
+   font-family: 'Lato', sans-serif;
+
+}
+
+
+#banner {
+  background-color: white;
+  margin: 0;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  border-bottom: 2px solid black;
+  height: 120px;
+}
+
+#title {
+margin: 0px;
+  color: black;
+  text-align: left;
+  margin: auto;
+  word-wrap: break-all;
+
+}
+
+#title h1 {
+  text-align: left;
+  font-family: "Bebas Neue",sans-serif;
+  font-weight: 300;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 4em;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /* display: inline;*/
+}
+
+#featured {
+	height: 300px;
+	 border-bottom: 2px solid black;
+
+}
+
+
+.underline_divider {
+  text-align: center;
+  border-bottom: 10px solid #2d3038;
+  width: 90px;
+  margin: 10px 10px 10px 10px;
+  margin-bottom: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#featured-title {
+	font-family: "Bebas Neue",sans-serif;
+	float: left;
+	padding-left: 30px;
+
+
+}
+
+#featured-title .underline_divider {
+	float: left;
+	 margin: 0px;
+
+}
+
+
+.app_image {
+	position: relative;
+	width: 100%;
+}
+
+.app_title {
+	position: absolute;
+	top: 0px;
+	text-align: left;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	color: white;
+	font-family: "Bebas Neue",sans-serif;
+	height: auto;
+	font-style: italic;
+}
+
+.app_title a {
+	text-decoration: none;
+	font-size: 1.5em;
+	color: white;
+	font-style: normal;
+}
+
+.app_title span {
+	padding-left: 0px 0px 0px 5px;
+
+}
+
+.app_description {
+	display: none;
+	text-align: left;
+	width: 100%;
+	color: white;
+	font-family: "Bebas Neue",sans-serif;
+	height: auto;
+}
+
+.project {
+  display: inline-block;
+  box-sizing: border-box;
+  width: auto;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 5px;
+  margin-bottom: 50px;
+  text-align: left;
+  vertical-align: top;
+  height: auto;
+}
+
+
+#projects{
+  text-align: center;
+  margin-top:80px;
+  margin-bottom:100px;
+}

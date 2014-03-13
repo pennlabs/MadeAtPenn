@@ -5,6 +5,8 @@ var mongoose = require("mongoose");
 mongoose.connect( 'mongodb://localhost/express-projects' );
 //controllers
 var controller = require('./controllers/controller.js');
+app.use(express.static(__dirname + '/public'));
+
 
 app.use(express.bodyParser())
    .use(express.methodOverride())

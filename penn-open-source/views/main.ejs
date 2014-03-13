@@ -4,38 +4,82 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900italic' rel='stylesheet' type='text/css'>
+     <link href="/style.css" rel="stylesheet" type="text/css">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
     <title>Penn Open Source</title>
-  
+    <script>
+      
+      $(document).ready(function(e){ 
+          $('.project').hover( 
+            function () {
+                  $(this).find('.app_description').fadeIn('fast');
+              },
+            function () {
+                  $(this).find('.app_description').fadeOut('fast');
+            })
+    });
+
+    </script>
+
+
+
   </head>
 
   <body>
+
+
+ <div id="banner">
+          <div id="title">
+            <h1>Penn Open Source</h1>
+          </div>
+  </div>
+
+<div id="featured" >
+  <div id="featured-title">
+    <h1> Featured: </h1>
+    <div class="underline_divider"></div>
+  </div>
+</div>
+
+
+    <div id="projects">
+
     <% projects.forEach(function(project, index){ %>
   
-       <!-- fix this to make it approved == 1 -->
         <% if (project.approved == 1) { %>
               <div class="project" id= <%= project._id %> >
-                <h2> <a href=<%= project.demo_link %>> <%= project.app_name %> </a></h2>
-                <div id="app_image">
-               <img width='200px' height='200px' src= <%= "https://s3-us-west-2.amazonaws.com/penn-open-source/images/" + project._id + ".jpg" %> />
+                <div class="app_image">
+                   <img width='300px' height='300px' src= <%= "https://s3-us-west-2.amazonaws.com/penn-open-source/images/" + project._id + ".jpg" %> /> 
+                   
+                        <div class="app_title">
+                             <span><h2> <a href=<%= project.demo_link %>> <%= project.app_name %></a>,     <%= project.builders %>  </h2> </span>
+
+                            <div class="app_description">
+                                <h2> LALALA <%= project.app_name %> </h2>              
+                                <p> <%= project.description %> </p>
+                                  <% if (project.github_permis == 'yes') { %>
+                                      <p> <a href= <%= project.github %> > Github </a> </p>
+                                  <% } %>
+                                  <p> Tags: <%  %>
+                                    <% var array = project.tags.split(","); %>
+                                    <% for(var i=0; i<array.length; i++) { %>
+                                    <a href =  <%= '/tag/' + array[i].trim() %> > <%= array[i] %></a>  
+                                    <% } %>
+                                  </p>
+                            </div>
+                        </div>
                 </div>
-                <p> <%= project.description %> </p>
-                <p> built by: <%= project.builders %>, at <%= project.location %> </p>
-                    <% if (project.github_permis == 'yes') { %>
-                        <p> <a href= <%= project.github %> > Github </a> </p>
-                    <% } %>
-
-                <p> Tags: <%  %>
-                  <% var array = project.tags.split(","); %>
-
-                  <% for(var i=0; i<array.length; i++) { %>
-                  <a href =  <%= '/tag/' + array[i].trim() %> > <%= array[i] %></a>  
-                  <% } %>
-                </p>
               </div>
         <% } %> 
     <% }) %>
+    </div>
+
   </body>
 
 

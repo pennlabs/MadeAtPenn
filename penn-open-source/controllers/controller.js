@@ -7,7 +7,6 @@ var fs=require('fs');
 var sys=require('sys');
 var credentials = require("../config.json");
 
-
 var client = knox.createClient({
 	key: credentials.accessKeyId,
 	secret: credentials.secretAccessKey,
@@ -130,7 +129,7 @@ exports.update_project = function(req, res) {
 
 	Project.findOneAndUpdate({"_id": new ObjectId(req.body.id)}, updates, options, function(err, data) {
 		if(!err) {
-			res.redirect("/");
+			res.redirect("/admin");
 		} 
 		res.send(err);
 	}); 
