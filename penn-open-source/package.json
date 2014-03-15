@@ -5,7 +5,14 @@
   "private": true,
   "dependencies": {
     "express": "3.x",
-    "mongoose" : "*",
-    "async" : "*"
-      }
+    "mongoose": "*",
+    "async": "*"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause"
 }
