@@ -7,6 +7,14 @@ body {
    font-family: 'Lato', sans-serif;
 }
 
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/BebasNeue.ttf');
+}
+
 #banner {
   background-color: #2d3038;
   margin: 0;
