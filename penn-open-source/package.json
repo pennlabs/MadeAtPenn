@@ -1,6 +1,6 @@
 {
-  "name": "hello-world",
-  "description": "hello world test app",
+  "name": "penn-open-source",
+  "description": "Penn Open Source project portal",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -13,6 +13,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "BSD-2-Clause"
+  "author": "Dhruv Maheshwari",
+  "license": "BSD-2-Clause",
 }
