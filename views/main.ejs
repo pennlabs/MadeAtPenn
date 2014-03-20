@@ -41,37 +41,17 @@
 
 
  <div id="banner">
-          <div id="title">
             <h1>Penn Open Source</h1>
               
             <a href="http://www.pennlabs.org"> <img src="/labs2.png" width=50px height=50px /> </a>
             <ul id="nav"> 
-              <a href=""><li>Home</li></a>
-              <a href="#projects"><li>Projects</li></a>
-              <a href=""><li>FAQ</li></a>
+              <a href="/"><li>Home</li></a>
+              <a href="/about"><li>FAQ</li></a>
               <a href="/submit"><li>Submit</li></a>
             </ul>
-
-           </div>
   </div>
 
-<div id="container">
 
-    <div id="about" >
-      <p>Penn Open Source is a Penn Labs initiative dedicated to student-developers at the University of Pennsylvania. Year after year, Penn students demonstrate their ability to tinker, hack and innovate by working on incredibly creative projects. Penn Open Source aims to be a home for all the projects - a way for Penn developers to reach users and a way for up-and-coming developers to get inspiration for projects of their own. Check out their projects below!</p>
-
-      <p> Interested in submitting a project? Feel free to fill out the application! We'll be in touch soon. </o>
-        <a href="/submit"><button> Submit your project! </button></a>
-    </div>
-
-    <div id="featured" >
-      <div id="featured-title">
-        <h1> App of the Week: </h1>
-        <div class="underline_divider"></div>
-      </div>
-    </div>
-
-</div>
 
     <div id="projects">
 
@@ -80,7 +60,7 @@
         <% if (project.approved == 1) { %>
               <div class="project" id= <%= project._id %> >
                 <div class="app_image">
-                   <img width='300px' height='300px' src= <%= "https://s3-us-west-2.amazonaws.com/penn-open-source/images/" + project._id + ".jpg" %> /> 
+                   <img width='320px' height='200px' src= <%= "https://s3-us-west-2.amazonaws.com/penn-open-source/images/" + project._id + ".jpg" %> /> 
                    
                         <div class="app_description">
                                  
@@ -119,6 +99,18 @@
         <% } %> 
     <% }) %>
     </div>
+
+
+    <div id="footer">
+      <div id='social'>
+        <a href="http://twitter.com/pennlabs"><img class="icon" src="twitter.png"/></a>
+        <a href="https://www.facebook.com/labsatpenn"><img class="icon" src="facebook.gif"/></a>
+        <span>Penn Labs: Improving student technology at Penn since 2010</span>
+      </div>
+    </div>
+
+
+
 
   </body>
 

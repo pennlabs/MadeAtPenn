@@ -10,6 +10,12 @@
     <title>Submit your application!</title>
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap.css" rel="stylesheet">
+
+    <link href="/style.css" rel="stylesheet" type="text/css">
+
+   
     <script src="//code.jquery.com/jquery-1.9.1.js"></script>
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script>
@@ -52,29 +58,37 @@
 
   <body>
 
-    <p>
+ <div id="banner">
+            <h1>Penn Open Source</h1>
+              
+            <a href="http://www.pennlabs.org"> <img src="/labs2.png" width=50px height=50px /> </a>
+            <ul id="nav"> 
+              <a href="/"><li>Home</li></a>
+              <a href="/about"><li>FAQ</li></a>
+              <a href="/submit"><li>Submit</li></a>
+            </ul>
+  </div>
 
-      For all those hours you spent poring over your computer, late into the night: here's a chance to debut your hard work! The Penn Projects Archive is a new initiative Labs to host polished apps created by students. It's your chance to showcase what you've made and see what others have made before you!
+<div id="submit_description">
 
-      Interested in submitting your app to the archive? You've come to the right place! After you submit this form, we will decide to post your project based on the following guidelines:
 
-      1) Is the application hosted somewhere online? (Will it stay hosted?)
-      2) Is the application polished? (A few bugs are fine, but generally polish is appreciated!)
-      3) Does the application function / do what it's supposed to do? Does it serve the Penn Community?
-      4) Does the application misuse data / expose user information? 
+      <h2>Interested in submitting your project?</h2>
+      
+      <p>Penn Open Source is a new Labs initiative to host polished apps created by Penn students. Our criteria for evaluating apps: <span> Originality, Functionality, Polish, Legality (data/privacy). </span> You will receive an email as soon as your app is approved!
+      </p>
+</div>
 
-      Thanks! We'll inform you once your app is posted!
-    </p>
+<div id="form" class="form-group">
 
   <form action="/post" method="POST">
     <label for="app_name"> What's your app called? </label>
     <input type="text" name="app_name" size="20" class="form-control" placeholder=""><br>
 
-    <label for="description"> Please write three sentences describing your application </label>
-    <input type="text" name="description" size="80" class="form-control" placeholder=""><br>
+    <label for="description"> Please write a description of your app (175 char max). </label>
+    <input type="text" maxlength="175" name="description" size="80" class="form-control" placeholder=""><br>
 
 
-    <label for="demo"> Where is this hosted (Link?) </label>
+    <label for="demo"> Where is this hosted (Link?)? </label>
     <input type="url" name="demo" size="20" class="form-control" placeholder="ie. http://pennlabs.herokuapp.com"><br>
 
 
@@ -90,16 +104,18 @@
     <label for="date"> Until when should this app stay up? </label>
     <input type="date" name="date" size="20" class="form-control" placeholder="ie. 2/24/15"><br>
 
+
     <label for="contact"> Who's the main contact for this?</label>
-    <input type="email" name="contact" size="20" class="form-
-    control" placeholder="me@ibuiltthis.com"><br>
+    <input type="text" name="contact" size="20" class="form-control" placeholder="d@upenn.edu"><br>
 
     <label for="github_permis"> Are you willing to make the github public:</label>
     <input type="radio" name="github_permis" value="yes">Yes
-    <input type="radio" name="github_permis" value="no">No<br>
+    <input type="radio" name="github_permis" value="no">No
+    <br>
+    <br>
 
     <label for="github"> Github link?</label>
-    <input type="text" name="github" size="20" class="form-control" placeholder="me@ibuiltthis.com"><br>
+    <input type="text" name="github" size="20" class="form-control" placeholder=""><br>
 
     <label for="tags"> Tags</label>
     <input type="text" name="tags" size="20" id="tags" class="form-control" placeholder="tag"><br>
@@ -107,15 +123,24 @@
       <label for="personal"> Personal websites?</label>
     <input type="text" name="personal" size="40" class="form-control" placeholder="http://pennlabs.org, http://penn.com"><br>
 
-    <input type="hidden" name="approved" size="40" class="form-control" value ="0" ><br>
+    <input type="hidden" name="approved" size="40" class="form-control" value ="0" >
 
-    <input type="submit" />
-
+    <button type="submit" id="pennlabs-submit" class="btn btn-default"> Submit </button>
 
   </form>
   </div>
 
 
+
+
+
+    <div id="footer">
+      <div id='social'>
+        <a href="http://twitter.com/pennlabs"><img class="icon" src="twitter.png"/></a>
+        <a href="https://www.facebook.com/labsatpenn"><img class="icon" src="facebook.gif"/></a>
+        <span>Penn Labs: Improving student technology at Penn since 2010</span>
+      </div>
+    </div>
 
 
 
