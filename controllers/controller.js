@@ -44,6 +44,12 @@ exports.admin = function(req, res) {
 	})
 };
 
+//Page: image upload page
+exports.faq = function(req, res) {
+	res.render("faq.ejs");
+};
+
+
 //Page: submit page
 exports.submit = function(req, res) {
 	res.render("submit.ejs", {error: "lalal"});

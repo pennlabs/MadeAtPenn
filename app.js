@@ -44,6 +44,7 @@ app.get("/searchOne/:id", controller.search_findOne);
 app.post("/update", controller.update_project);
 app.get("/image_upload/:id", controller.upload_page);
 app.post("/upload", controller.upload);
+app.get('/faq', controller.faq);
 
 
 console.log("Listening on port 3000");

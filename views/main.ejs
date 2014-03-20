@@ -41,13 +41,14 @@
 
 
  <div id="banner">
-            <h1>Penn Open Source</h1>
+            <a href="/"><h1>Penn Open Source</h1></a>
               
             <a href="http://www.pennlabs.org"> <img src="/labs2.png" width=50px height=50px /> </a>
             <ul id="nav"> 
               <a href="/"><li>Home</li></a>
-              <a href="/about"><li>FAQ</li></a>
+              <a href="/faq"><li>FAQ</li></a>
               <a href="/submit"><li>Submit</li></a>
+
             </ul>
   </div>
 
@@ -67,18 +68,20 @@
                               
                                 <p> <%= project.description %> </p>
                               
-                                   <a href=<%= project.demo_link %>> <div class="view">
+
+
+
+                              <a href=<%= project.demo_link %>><div class="view left">
                                     View App
                                 </div> </a>
 
 
+                                <a href=<%= project.github %>><div class="view right">
+                                    View Source
+                                </div> </a>
 
                                   <div class="tags">
                                     <span>
-                                     <% if (project.github_permis == 'yes') { %>
-                                        <p> <a href= <%= project.github %> > Source Code </a> </p>
-                                      <% } %>
-
                                       <p> Tags:    
                                       <% var array = project.tags.split(","); %>
                                       <% for(var i=0; i<array.length; i++) { %>

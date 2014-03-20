@@ -25,6 +25,9 @@ body {
   padding-top: 0px;
   height: 50px;
 }
+#banner a {
+	color: white;
+}
 
 #footer {
   height: 60px;
@@ -149,15 +152,21 @@ ul{
 	padding: 10px 10px;
 }
 
+.app_description a {
+	text-align: center;
+}
+
 .view {
-	margin: auto;
+	display: inline-block;
 	text-decoration: none;
+	margin: auto 17px;
 	border:2px solid white; 
 	border-radius: 10px;
-	width: 80px;
+	width: 90px;
 	padding: 10px;
 	text-align: center;
 }
+ 
 
 .view-background {
 	background-color: rgba(0, 0, 0, 0.2);
