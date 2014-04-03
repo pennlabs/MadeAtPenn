@@ -195,7 +195,7 @@ ul{
 .view {
 	display: inline-block;
 	text-decoration: none;
-	margin: auto 25px;
+	margin: auto 24px;
 	border:2px solid white; 
 	border-radius: 10px;
 	width: 100px;
