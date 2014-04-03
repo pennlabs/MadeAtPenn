@@ -38,7 +38,7 @@ body {
 }
 
 @font-face {
-  font-family: 'Bebas Neue';å
+  font-family: 'Bebas Neue';
   font-style: normal;
   font-weight: normal;
   src: url('../BebasNeue.ttf');
@@ -175,12 +175,12 @@ ul{
 	top: 0px;
 	text-align: left;
 	background-color: rgba(0, 0, 0, 0.7);
-	width: 300px;
+	width: 320px;
 	color: white;
 	font-family: 'Lato', sans-serif;
 	font-weight: 200;
   	font-size: .9em;
-	height: 180px;
+	height: 200px;
 	padding: 10px 10px;
 }
 
@@ -194,7 +194,7 @@ ul{
 	margin: auto 17px;
 	border:2px solid white; 
 	border-radius: 10px;
-	width: 90px;
+	width: 100px;
 	padding: 10px;
 	text-align: center;
 }
