@@ -189,13 +189,13 @@ ul{
 }
 
 .blurb {
-	height: 40px;
+	height: 70px;
 }
 
 .view {
 	display: inline-block;
 	text-decoration: none;
-	margin: auto 17px;
+	margin: auto 20px;
 	border:2px solid white; 
 	border-radius: 10px;
 	width: 100px;
@@ -203,6 +203,11 @@ ul{
 	text-align: center;
 }
  
+.right {
+	margin-left: 22px;
+}
+
+
 
 .view-background {
 	background-color: rgba(0, 0, 0, 0.2);
