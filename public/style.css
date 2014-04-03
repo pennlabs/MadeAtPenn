@@ -195,7 +195,7 @@ ul{
 .view {
 	display: inline-block;
 	text-decoration: none;
-	margin: auto 20px;
+	margin: auto 25px;
 	border:2px solid white; 
 	border-radius: 10px;
 	width: 100px;
@@ -203,9 +203,6 @@ ul{
 	text-align: center;
 }
  
-.right {
-	margin-left: 22px;
-}
 
 
 
