@@ -6,15 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900italic' rel='stylesheet' type='text/css'>
+        <!-- Bootstrap core CSS -->
+    <link href="/bootstrap.css" rel="stylesheet">
+
+
      <link href="/style.css" rel="stylesheet" type="text/css">
+
     <meta name="description" content="">
     <meta name="author" content="">
     <script src="//code.jquery.com/jquery-1.9.1.js"></script>
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-    <title>Penn Open Source</title>
+    <title>Made At Penn</title>
     <script>
-      
+       $(function() {
+      /*function log( message ) {
+        $( "<div>" ).text( message ).prependTo( "#log" );
+        $( "#log" ).scrollTop( 0 );
+      }
+      */
+      $("#tags").autocomplete({
+          source: function(request, response) {
+              var results = []
+              $.get('/search/' + request.term, function(data) {
+                  console.log(data);
+                  $.each(data.elements, function(index, item) {
+                      var itemToAdd = {
+                        value : item,
+                        label : item,
+                      } 
+                      results.push(itemToAdd);
+                    });               
+              return response(results);
+              });
+          }
+        });
+    });
+
       $(document).ready(function(e){ 
           $('.project').hover( 
             function () {
@@ -40,18 +68,7 @@
   <body>
 
 
- <div id="banner">
-            <a href="/"><h1>Penn Open Source</h1></a>
-              
-            <a href="http://www.pennlabs.org"> <img src="/labs2.png" width=50px height=50px /> </a>
-            <ul id="nav"> 
-              <a href="/"><li>Home</li></a>
-              <a href="/faq"><li>FAQ</li></a>
-              <a href="/submit"><li>Submit</li></a>
-
-            </ul>
-  </div>
-
+ <% include banner %>
 
 
     <div id="projects">

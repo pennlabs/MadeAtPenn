@@ -10,6 +10,10 @@
     <title>Submit your application!</title>
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link href="/bootstrap.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet" type="text/css">
+
+
     <script src="//code.jquery.com/jquery-1.9.1.js"></script>
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
  <script>
@@ -24,7 +28,11 @@
 
   <body>
 
-  <form action="/update" method="POST">
+
+ <% include banner %>
+
+
+  <form action="/update" id="form" method="POST">
     <label for="app_name"> What's your app called? </label>
     <input type="text" name="app_name" size="20" class="form-control" placeholder="" value= "<%= projects.app_name %>" ><br>
 

@@ -1,8 +1,6 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
-
-
 var setTag = function(tag) {
 	var tag_clean = tag.toLowerCase();
 	tag_clean = tag_clean.trim();
