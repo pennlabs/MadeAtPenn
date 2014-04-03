@@ -188,6 +188,10 @@ ul{
 	text-align: center;
 }
 
+.blurb {
+	height: 40px;
+}
+
 .view {
 	display: inline-block;
 	text-decoration: none;
