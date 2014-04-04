@@ -32,6 +32,29 @@ exports.upload_page = function(req, res) {
 };
 
 
+//Page: homepage
+exports.startups = function(req, res) {
+	Project.list(function (err, projects) {
+		if(err) {
+			return res.send(404);
+		} else {
+			return res.render("startups.ejs", {projects: projects});
+		}
+	})
+};
+
+
+//Page: homepage
+exports.projects = function(req, res) {
+	Project.list(function (err, projects) {
+		if(err) {
+			return res.send(404);
+		} else {
+			return res.render("projects.ejs", {projects: projects});
+		}
+	})
+};
+
 
 //Page: admin page
 exports.admin = function(req, res) {

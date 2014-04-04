@@ -45,7 +45,9 @@ app.post("/update", controller.update_project);
 app.get("/image_upload/:id", controller.upload_page);
 app.post("/upload", controller.upload);
 app.get('/faq', controller.faq);
+app.get("/projects", controller.projects);
+app.get("/startups", controller.startups);
 
 
 console.log("Listening on port 3000");
-module.exports = app
+module.exports = app;
