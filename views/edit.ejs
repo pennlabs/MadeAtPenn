@@ -33,6 +33,18 @@
 
 
   <form action="/update" id="form" method="POST">
+
+ <label for="app_or_startup"> Is this a project or a startup: </label>
+    
+<% if (projects.project_or_startup == "project") { %>
+    <input type="radio" name="project_or_startup" checked value="project">    Project 
+    <input type="radio" name="project_or_startup" value="startup">   Startup
+<% } else { %>
+    <input type="radio" name="project_or_startup"  value="project">    Project 
+    <input type="radio" name="project_or_startup" checked value="startup">   Startup
+<% } %>
+
+
     <label for="app_name"> What's your app called? </label>
     <input type="text" name="app_name" size="20" class="form-control" placeholder="" value= "<%= projects.app_name %>" ><br>
 

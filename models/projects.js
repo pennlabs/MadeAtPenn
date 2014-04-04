@@ -18,6 +18,7 @@ var setTags = function(tags) {
 }
 
 var ProjectSchema = new Schema({
+  project_or_startup: { type: String, default: '', trim: true},
   app_name: { type: String, default: '', trim : true },
   description: { type: String, default: '', trim : true },
   demo_link: { type: String, default: '' },

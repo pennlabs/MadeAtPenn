@@ -117,6 +117,7 @@ exports.upload = function(req, res) {
 exports.update_project = function(req, res) {
 
 	updates = {
+		project_or_startup : req.body.project_or_startup,
 		app_name : req.body.app_name,
 		description : req.body.description,
 		demo_link : req.body.demo,
@@ -164,7 +165,10 @@ exports.search_findOne = function(req, res) {
 
 //creates new project
 exports.create = function(req, res) {
+	console.log("something");
+	console.log(req.body.project_or_startup);
 	var project = new Project({
+		project_or_startup : req.body.project_or_startup,
 		app_name : req.body.app_name,
 		description : req.body.description,
 		demo_link : req.body.demo,

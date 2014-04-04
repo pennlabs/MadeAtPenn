@@ -66,21 +66,26 @@
 
       <h2>Interested in submitting your project?</h2>
       
-      <p>Penn Open Source is a new Labs initiative to host polished apps created by Penn students. Our criteria for evaluating apps: <span> Originality, Functionality, Polish, Legality (data/privacy). </span> The project must be open source. You will receive an email as soon as your app is approved!
+      <p>Made At Penn is a new initiative by Labs and the Dining Philosophers to showcase projects and startups created and launched by Penn students and alumni. The goal is bring the tech and entrepreneurship community closer by highlighting the work of individuals and groups. 
       </p>
 </div>
 
 <div id="form" class="form-group">
 
   <form action="/post" method="POST">
-    <label for="app_name"> What's your app called? </label>
+    <label for="project_or_startup"> Is this a project or a startup: </label>
+    <input type="radio" name="project_or_startup" value="project">    Project 
+    <input type="radio" name="project_or_startup" value="startup">   Startup
+    <br />
+  
+    <label for="app_name"> What's it called? </label>
     <input type="text" name="app_name" size="20" class="form-control" placeholder=""><br>
 
-    <label for="description"> Please write a description of your app (125 char max). </label>
+    <label for="description"> Please write a brief description (125 char max). </label>
     <input type="text" maxlength="125" name="description" size="80" class="form-control" placeholder=""><br>
 
 
-    <label for="demo"> Where is this located (link)? </label>
+    <label for="demo"> Please enter a link to your project/startup: </label>
     <input type="url" name="demo" size="20" class="form-control" placeholder="ie. http://pennlabs.herokuapp.com"><br>
 
 
@@ -90,14 +95,13 @@
     <label for="technologies"> What technologies did you use to create your app? </label>
     <input type="text" name="technologies" size="20" class="form-control" placeholder="ie. Python/Flask"><br>
 
-    <label for="builders"> Who built this? (Full Names?) </label>
+    <label for="builders"> Who built this?/Who are the co-founders? (Full Names?) </label>
     <input type="text" name="builders" size="80" class="form-control" placeholder="ie. Amy Gutmann, Alexey Komisaalala"><br>
 
-    <label for="date"> Until when should this app stay up? </label>
+    <label for="date"> Until when should this app stay up? (Ignore for startups) </label>
     <input type="date" name="date" size="20" class="form-control" placeholder="ie. 2/24/15"><br>
 
-
-    <label for="contact"> Who's the main contact for this?</label>
+    <label for="contact"> Contact email for this?</label>
     <input type="text" name="contact" size="20" class="form-control" placeholder="d@upenn.edu"><br>
 
     <label for="github"> Github link?</label>

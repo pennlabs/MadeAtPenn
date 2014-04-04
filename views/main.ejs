@@ -71,12 +71,14 @@
  <% include banner %>
 
 <div id="container">
-  
+
     <div id="projects">
+      <h2 class="section-header"> Projects </h2>        <div class="underline_divider"></div>
+
 
     <% projects.forEach(function(project, index){ %>
   
-        <% if (project.approved == 1) { %>
+        <% if (project.approved == 1 && (project.project_or_startup == "project")) { %>
               <div class="project" id= <%= project._id %> >
                 <div class="app_image">
                    <img width='320px' height='200px' src= <%= "https://s3-us-west-2.amazonaws.com/penn-open-source/images/" + project._id + ".jpg" %> /> 
@@ -117,6 +119,54 @@
               </div>
         <% } %> 
     <% }) %>
+
+<h1 class="section-header"> Startups </h2>
+          <div class="underline_divider"></div>
+
+
+<% projects.forEach(function(project, index){ %>
+  
+        <% if (project.approved == 1 && (project.project_or_startup == "startup")) { %>
+              <div class="project" id= <%= project._id %> >
+                <div class="app_image">
+                   <img width='320px' height='200px' src= <%= "https://s3-us-west-2.amazonaws.com/penn-open-source/images/" + project._id + ".jpg" %> /> 
+                   
+                        <div class="app_description">
+                                 
+                              
+                              <div class= "blurb"  <p> <%= project.description %> </p> </div>
+                              
+
+                              <a href=<%= project.demo_link %>><div class="view left">
+                                    View Site
+                                </div> </a>
+
+
+                                  <div class="tags">
+                                    <span>
+                                      <p> Tags:    
+                                      <% var array = project.tags.split(","); %>
+                                      <% for(var i=0; i<array.length; i++) { %>
+                                      <a href =  <%= '/tag/' + array[i].trim() %> ><%= array[i] %></a>  
+                                      <% } %>
+                                    </p></span>
+                                  </div>
+                        </div>
+                 </div>
+
+                 <div class="app_title">
+                    <span><h2> <a href=<%= project.demo_link %>> <%= project.app_name %></a> </h2></span>    
+                    <br />
+                    <h3> <%= project.builders %>  </h3> 
+                 </div>
+
+              </div>
+        <% } %> 
+    <% }) %>
+
+
+
+
     </div>
 </div>
 
