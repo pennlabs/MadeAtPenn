@@ -110,7 +110,7 @@
  <% projects.forEach(function(project, index){ %>
       
        <!-- fix this to make it approved == 1 -->
-        <% if (project.approved == 1 && project.project_or_startup == "startup") { %>
+        <% if (project.approved == 1) { %>
               <div class="project" id= <%= project._id %> >
                 <h2> <a href=<%= project.demo_link %>> <%= project.app_name %> </a></h2>
                 <div id="app_image">
