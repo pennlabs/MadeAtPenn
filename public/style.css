@@ -212,6 +212,10 @@ ul{
 	padding: 10px;
 	text-align: center;
 }
+
+.center {
+	margin: auto;
+}
  
 
 
@@ -286,8 +290,8 @@ ul{
   display: inline-block;
   box-sizing: border-box;
   width: auto;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
   margin-top: 5px;
   margin-bottom: 50px;
   text-align: left;
