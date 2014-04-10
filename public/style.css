@@ -307,8 +307,7 @@ ul{
 }
 
 .icon {
-  width: 30px;
-  height: 30px;
+  height: 32px;
   vertical-align: middle;
   opacity: 0.5;
 }
@@ -352,7 +351,6 @@ ul{
 
 #faq_description {
 	padding: 40px 40px 0px 40px;
-	margin-top: 160px;
 }
 
 #faq_description h2 {
