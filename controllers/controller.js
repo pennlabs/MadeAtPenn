@@ -129,6 +129,13 @@ exports.edit = function(req, res) {
 
 /*--------------  Helper functions ----------- */
 
+//logs out
+exports.logout = function(req, res) {
+	req.session.logged = false;
+	req.session.username = "";
+	return res.redirect("/login");
+};
+
 //creates user account
 exports.create_account = function(req, res) {
 	console.log("account");

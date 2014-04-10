@@ -54,6 +54,7 @@ app.get("/create_account_page", controller.create_account_page);
 app.post("/create_account", controller.create_account);
 app.get("/login", controller.login);
 app.post("/check_login", controller.check_login);
+app.get("/logout", controller.logout);
 
 
 console.log("Listening on port 3000");
