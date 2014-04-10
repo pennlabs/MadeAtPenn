@@ -214,7 +214,8 @@ ul{
 }
 
 .center {
-	margin: auto;
+	margin-left: 49px;
+	margin-right: 49px;
 }
  
 
