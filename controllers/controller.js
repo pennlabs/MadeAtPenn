@@ -1,9 +1,11 @@
 var Project = require('../models/projects').Project;
+var User = require('../models/users').User;
 var Tag = require('../models/tag').Tag;
 var mongoose = require('mongoose');
 var async = require("async");
 var knox = require('knox');
 var fs=require('fs');
+var SHA3 = require("crypto-js/sha3");
 var sys=require('sys');
 var credentials = require("../config.json");
 
@@ -52,22 +54,35 @@ exports.projects = function(req, res) {
 		} else {
 			return res.render("projects.ejs", {projects: projects});
 		}
-	})
+	});
 };
-
 
 //Page: admin page
 exports.admin = function(req, res) {
-	Project.list(function (err, projects) {
-		if(err) {
-			return res.send(404);
-		} else {
-			return res.render("admin.ejs", {projects: projects});
-		}
-	})
+	if(req.session.logged) {
+		Project.list(function (err, projects) {
+			if(err) {
+				return res.send(404);
+			} else {
+				return res.render("admin.ejs", {projects: projects});
+			}
+		});
+	} else {
+		return res.redirect('/login');
+	}
 };
 
-//Page: image upload page
+//Page: login page
+exports.login = function(req, res) {
+	return res.render("login.ejs");
+};
+
+//Page: create account page 
+exports.create_account_page = function(req, res) {
+	return res.render("createaccount.ejs");
+};
+
+//Page: faq
 exports.faq = function(req, res) {
 	res.render("faq.ejs");
 };
@@ -102,18 +117,52 @@ exports.filter_by_tag = function(req, res) {
 			});
 		}
 	});
-}
+};
 
 //opens edit page for a single project
 exports.edit = function(req, res) {
 		Project.queryById(req.params.id, function(err, project) {
 			return res.render("edit.ejs", {projects: project[0]});
 		});
-	}
+	};
 
 
 /*--------------  Helper functions ----------- */
 
+//creates user account
+exports.create_account = function(req, res) {
+	console.log("account");
+	var user = new User({
+			username : req.body.username,
+			password : SHA3(req.body.password).toString(),
+			});
+		user.save(function(err, proj) {
+			if(err) {console.log(err);}
+			else {
+				res.redirect('/login');
+			}
+		});
+};
+
+//check login
+exports.check_login = function(req, res) {
+	var username = req.body.username;
+	var password = SHA3(req.body.password).toString();
+	User.findOne({username: username}, function(err, user) {
+		console.log(user);
+		if(err) {
+			console.log(err);
+			return res.redirect('/login');
+		} else if (user.username == username && user.password == password) {
+			console.log("logged in");
+			req.session["logged"] = true;
+			req.session["username"] = username;
+			return res.redirect('/admin');
+		} else {
+			return res.redirect('/login');
+		}
+	}); 
+};
 
 //handles upload function
 exports.upload = function(req, res) {

@@ -1,7 +1,9 @@
 var express = require('express');
 var app = express();
 var Project = require('./models/projects.js').Project;
+var User = require('./models/users.js').User;
 var mongoose = require("mongoose");
+
 
 var uristring =
 	process.env.MONGOLAB_URI ||
@@ -16,17 +18,18 @@ mongoose.connect(uristring, function (err, res) {
   }
 });
 
-//controllers
-var controller = require('./controllers/controller.js');
-app.use(express.static(__dirname + '/public'));
 
-
+app.use(express.cookieParser() );
+app.use(express.session({secret:'session'}));
+app.use(express.logger("default"));
 app.use(express.bodyParser())
    .use(express.methodOverride())
    .use(app.router)
    .use(express.multipart());
 
-app.use(express.logger("default"));
+//controllers
+var controller = require('./controllers/controller.js');
+app.use(express.static(__dirname + '/public'));
 
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {
@@ -47,6 +50,10 @@ app.post("/upload", controller.upload);
 app.get('/faq', controller.faq);
 app.get("/projects", controller.projects);
 app.get("/startups", controller.startups);
+app.get("/create_account_page", controller.create_account_page);
+app.post("/create_account", controller.create_account);
+app.get("/login", controller.login);
+app.post("/check_login", controller.check_login);
 
 
 console.log("Listening on port 3000");
