@@ -312,7 +312,7 @@ body {
 	display: none;
 	top: 0px;
 	text-align: left;
-	background-color: rgba(52, 73, 94, 0.7);
+	background-color: rgba(0, 0, 0, 0.7);
 	
 	width: 320px;
 	color: white;
@@ -346,8 +346,6 @@ body {
 	margin-left: 90px;
 }
  
-
-
 
 .view-background {
 	background-color: rgba(0, 0, 0, 0.2);
@@ -491,8 +489,6 @@ body {
 	margin: 5px 0px 10px 0px;
 	padding: 0px;
 }
-
-
 
 #form {
 	padding: 40px;
