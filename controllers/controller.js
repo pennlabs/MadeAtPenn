@@ -154,7 +154,10 @@ exports.create_account = function(req, res) {
 //check login
 exports.check_login = function(req, res) {
 	var username = req.body.username;
+	console.log("username:" + username);
 	var password = SHA3(req.body.password).toString();
+	console.log("password:" + password);
+
 	User.findOne({username: username}, function(err, user) {
 		console.log(user);
 		if(err) {
