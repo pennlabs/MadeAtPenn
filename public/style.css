@@ -312,7 +312,7 @@ body {
 	display: none;
 	top: 0px;
 	text-align: left;
-	background-color: #3498db;
+	background-color: rgba(142, 68, 173, .7);
 	width: 320px;
 	color: white;
 	font-family: 'Lato', sans-serif;
