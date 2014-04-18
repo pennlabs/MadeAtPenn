@@ -44,19 +44,195 @@ body {
   src: url('../BebasNeue.ttf');
 }
 
-#banner {
-  background-color: #2d3038;
-  margin: 0;
-  padding-bottom: 0px;
-  padding-top: 0px;
-  height: 50px;
+@font-face {
+	font-family: "Franchise-Bold";
+	font-style: normal;
+	font-weight: normal;
+	src: url("../Franchise-Bold.ttf");
 }
+
+@font-face {
+	font-family: "Circula";
+	font-style: normal;
+	font-weight: normal;
+	src: url("../circula-medium.otf");
+}
+
+#banner {
+  margin: 0px;
+  padding-bottom: 0px;
+  padding: 0px;
+  height: 60px;
+}
+
 #banner a {
 	color: white;
 }
 
-ul a :hover{
-	text-decoration: underline;
+#splash {
+	background-color:#3498db;
+	margin: 0px;
+	margin-top: -3px;
+	padding: 0px;
+	height: 300px;
+	color: white;
+	font-size: 2.5em;
+}
+
+.splash-button {
+	display: inline-block;
+	margin: 5px;
+	width: 175px;
+	color: white;
+	font-size: .8em;
+	vertical-align: middle;
+	padding: 5px;
+}
+
+#splash-button-container {
+	margin-right: 120px;
+	margin-top: 80px;
+	float: right;
+}
+
+#splash-blurb {
+	margin-top: 70px;
+	margin-left: 50px;
+	width: 500px;
+	display: inline-block;
+	float: left;
+}
+
+#splash p {
+	display: inline-block;
+}
+
+.startup-btn {
+	background-color: #1abc9c;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.submit-btn {
+	background-color: #e74c3c;
+	border-radius: 5px;
+	text-align: center;
+	width: 370px;
+	margin-top: 10px;
+}
+
+
+.project-btn {
+	background-color: #1abc9c;
+	border-radius: 5px;
+	text-align: center;
+}
+
+
+
+.top {
+	margin-left: -3px;
+	margin-right: 0px;
+	margin-top: -3px;
+	padding: 0px;
+	height: 60px;
+	display: inline-block;
+	vertical-align: middle;
+	background-color: #2d3038;
+	font-size: 1.1em;
+    font-family: "Bebas Neue",sans-serif;
+	letter-spacing: 2px;
+	font-weight: 100;
+}
+
+#nav-header {
+	background-color: #2d3038;
+	width: 40%;
+}
+
+#nav-header a {
+	color: black;
+	vertical-align: middle;
+
+}
+
+#nav-home {
+	width: 12%;
+	text-align: center;
+	vertical-align: middle;
+}
+#nav-home:hover {
+	background-color: #3498db;
+}
+
+.top p {
+    position: relative;
+    top: 30%;
+    -ms-transform: translateY(-50%);
+    -wekbit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+#nav-projects {
+	width: 12%;
+	text-align: center;
+	vertical-align: middle;
+}
+#nav-projects:hover {
+	background-color: #2980b9;
+
+}
+
+#nav-startups {
+	width: 12%;
+	text-align: center;
+	vertical-align: middle;}
+
+#nav-startups:hover {
+	background-color: #27ae60;
+}
+
+#nav-faq {
+	width: 12%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#nav-faq:hover {
+     background-color: #e67e22;
+}
+
+#nav-submit {
+	width: 12%;
+	text-align: center;
+	vertical-align: middle;
+	border-right: 0px;
+}
+
+#nav-submit:hover {
+	background-color: #8e44ad;
+}
+
+
+
+#banner h1 {
+  font-family: "Bebas Neue",sans-serif;
+  font-weight: 300;
+  padding-left: 20px;
+  display: inline-block;
+  margin-top: 15px;
+  height: 0px;
+  color: white;
+}
+
+
+#banner img {
+	display: inline-block;
+	margin-right: 0px;
+	margin-left: 30px;
+	margin-top: -14px;
 }
 
 .ui-helper-hidden-accessible { display:none; }
@@ -81,55 +257,15 @@ ul a :hover{
 	color:  #2d3038;
 	margin-bottom: 7px;
 	padding: 3px;
-}
-
-ul{
-	display: inline-block;
-	padding: 0px;
-	float: right;
-	vertical-align: middle;
-}
-
-#nav li {
-	display: inline-block;
-	margin-left: 15px;
-}
-
-#nav a {
-	color: white;
-}
-
-
-#banner img {
-	float: right;
-	display: inline-block;
-	margin-right: 20px;
+	width: 150px;
+	display: inline;
 	margin-left: 20px;
-	margin-top: 4px;
+	margin-top: 1px;
+	vertical-align: middle;
+	font-family: Lato, sans-serif;
 }
 
-#banner {
-  margin: 0px;
-  color: white;
-  text-align: left;
-  word-wrap: break-all;
-  padding: 0px;
-  height: 60px;
-}
 
-#banner h1, #banner h2 {
-  text-align: left;
-  font-family: "Bebas Neue",sans-serif;
-  font-weight: 300;
-  padding-left: 20px;
-  font-size: 2.5em;
-  display: inline-block;
-  margin: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  vertical-align: middle;
-  height: 0px;
-}
 
 
 .section-header {
@@ -138,14 +274,6 @@ ul{
 }
 
 
-.search {
-	width: 150px;
-	display: inline;
-	margin-left: 20px;
-	margin-top: 1px;
-	vertical-align: middle;
-	font-family: Lato, sans-serif;
-}
 
 
 .underline_divider {
@@ -184,7 +312,7 @@ ul{
 	display: none;
 	top: 0px;
 	text-align: left;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: #3498db;
 	width: 320px;
 	color: white;
 	font-family: 'Lato', sans-serif;
