@@ -8,6 +8,7 @@ body {
 	font-weight:200;
   	font-size: 1em;
 	color: #2d3038;
+	min-width: 750px;
 }
 
 ::-webkit-input-placeholder {
@@ -72,13 +73,17 @@ body {
 }
 
 #splash {
+	position:relative;
 	background-color:#3498db;
 	margin: 0px;
 	margin-top: -3px;
 	padding: 0px;
-	height: 300px;
 	color: white;
-	font-size: 2.5em;
+	font-size: 2.2em;
+	overflow: auto;
+	min-width: 750px;
+	padding-top: 50px;
+	padding-bottom: 60px;
 }
 
 .splash-button {
@@ -92,17 +97,16 @@ body {
 }
 
 #splash-button-container {
-	margin-right: 120px;
-	margin-top: 80px;
-	float: right;
+	float: left;
+	padding-left: 30px;
+	padding-top: 20px;
 }
 
 #splash-blurb {
-	margin-top: 70px;
-	margin-left: 50px;
 	width: 500px;
 	display: inline-block;
 	float: left;
+	padding-left: 40px;
 }
 
 #splash p {
