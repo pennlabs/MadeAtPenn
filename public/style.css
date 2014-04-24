@@ -63,6 +63,8 @@ body {
   padding-bottom: 0px;
   padding: 0px;
   height: 60px;
+  width: 100%;
+  background-color: #2d3038;
 }
 
 #banner a {
@@ -128,8 +130,6 @@ body {
 	text-align: center;
 }
 
-
-
 .top {
 	margin-left: -4px;
 	margin-right: 0px;
@@ -172,7 +172,6 @@ body {
     -wekbit-transform: translateY(-50%);
     transform: translateY(-50%);
     border-left: 1px solid white;
-    border-right: 1px solid white;
 }
 
 #nav-projects {
