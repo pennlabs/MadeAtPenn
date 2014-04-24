@@ -81,7 +81,6 @@ body {
 	color: white;
 	font-size: 2.2em;
 	overflow: auto;
-	min-width: 1000px;
 	padding-top: 50px;
 	padding-bottom: 60px;
 }
@@ -222,21 +221,23 @@ body {
 
 
 #banner h1 {
+  position: relative;
+  top: 15px;
   font-family: "Bebas Neue",sans-serif;
   font-weight: 300;
   padding-left: 20px;
   display: inline-block;
-  margin-top: 15px;
-  height: 0px;
+  margin:0;
   color: white;
 }
 
 
 #banner img {
 	display: inline-block;
+	position: relative;
 	margin-right: 0px;
 	margin-left: 30px;
-	margin-top: -14px;
+	top: 10px;
 }
 
 .ui-helper-hidden-accessible { display:none; }
