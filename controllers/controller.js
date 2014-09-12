@@ -133,7 +133,7 @@ exports.edit = function(req, res) {
 exports.logout = function(req, res) {
 	req.session.logged = false;
 	req.session.username = "";
-	return res.redirect("/login");
+	return res.redirect("/");
 };
 
 //creates user account
