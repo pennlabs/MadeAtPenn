@@ -561,6 +561,9 @@ body {
 .desc {
 	height: 200px !important;
 	width: 400px;
+	font-size: 14px;
+	padding: 6px 12px;
+	font-weight: 400;
 }
 
 .builders {
