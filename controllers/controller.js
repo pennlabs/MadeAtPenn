@@ -7,6 +7,7 @@ var knox = require('knox');
 var fs=require('fs');
 var SHA3 = require("crypto-js/sha3");
 var sys=require('sys');
+var sendgrid  = require('sendgrid')('pennlabs', 'spam4eva');
 var credentials = require("../config.json");
 
 var client = knox.createClient({
@@ -218,11 +219,37 @@ exports.update_project = function(req, res) {
 
 	Project.findOneAndUpdate({"_id": new ObjectId(req.body.id)}, updates, options, function(err, data) {
 		if(!err) {
-			res.redirect("/admin");
-		} 
+	  				res.redirect("/admin");
+			};
 		res.send(err);
 	}); 
+};
+
+//allows admin to approve application
+exports.approve_project = function(req, res) {
+	Project.findOneAndUpdate({"_id": new ObjectId(req.body.id)}, 
+		{approved: 1}, function(err, data) {
+		if(!err) {
+			console.log(data);
+			var email = new sendgrid.Email({
+					to: req.body.contact,
+					from: 'pennappslabs@gmail.com',
+					bcc: 'pennappslabs@gmail.com',
+					subject:'[MadeAtPenn] Project Approved!',
+				});
+			email.setHtml('<p>Hey there! <br /> ' + req.body.app_name + ' has been approved! '+ 
+			 			'You can check it out <a href="madeatpenn.pennlabs.org/">here</a>. Keep up the good work!' + 
+			 			'<br /> Sincerely, <br /> Penn Labs</p>');
+			sendgrid.send(email, function(err, json) {
+				if (err) { return console.error(err); }
+				console.log(json);
+			});
+		res.redirect("/admin");
+		}
+		res.send(err);
+		})
 }
+
 
 //for autocomplete in tags
 exports.search_tags = function(req, res) {
@@ -267,20 +294,45 @@ exports.create = function(req, res) {
 		});
 
 	project.save(function(err, proj) {
-		if(err) {console.log(err)}
+		if(err) {console.log(err);}
 		else {
-			var tags = req.body.tags.split(/,| /);
-			async.each(tags, function(tag_name, callback) {
-				var tag = new Tag({
-					tag: tag_name,
-					app_name : req.body.app_name
-				})
-				tag.save(callback());
-			}, function(err) {
-				if(err == null) {
-					res.redirect('/');
-				}
-			});
+			
+			async.parallel(
+				[
+					function(callback) {
+						var email     = new sendgrid.Email({
+							to:       req.body.contact,
+							bcc: 'pennappslabs@gmail.com',
+							from:     'pennappslabs@gmail.com',
+							subject:  '[MadeAtPenn] Thanks for your submission!',
+						});
+						email.setHtml('<p>Hey there! <br /> Thanks for submitting to MadeAtPenn. '+ 
+						 			'We\'re incredibly excited to check out what you made! You\'ll get another email once ' +
+									'your app has been approved and published online! In the meantime, be sure check out '+
+									'your classmate\'s hacks <a href="madeatpenn.pennlabs.org">here</a>! <br /> Sincerely, <br /> Penn Labs</p>');
+						sendgrid.send(email, function(err, json) {
+						  if (err) { return console.error(err); }
+						  console.log(json);
+						  callback();
+						});
+					},
+					function(callback) {
+						var tags = req.body.tags.split(/,| /);
+						async.each(tags, function(tag_name, callback) {
+							var tag = new Tag({
+								tag: tag_name,
+								app_name : req.body.app_name
+							})
+							tag.save(callback());
+						});
+						callback();
+					}
+				], 	function(err) {
+						if(err == null) {
+							res.redirect('/');
+						}
+					}
+			);
 		}
 	});
-}
+};

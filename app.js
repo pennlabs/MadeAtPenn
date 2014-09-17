@@ -45,6 +45,7 @@ app.post("/post", controller.create);
 app.get("/search/:tag", controller.search_tags);
 app.get("/searchOne/:id", controller.search_findOne);
 app.post("/update", controller.update_project);
+app.post("/approve", controller.approve_project);
 app.get("/image_upload/:id", controller.upload_page);
 app.post("/upload", controller.upload);
 app.get('/faq', controller.faq);
@@ -57,5 +58,4 @@ app.post("/check_login", controller.check_login);
 app.get("/logout", controller.logout);
 
 
-console.log("Listening on port 3000");
 module.exports = app;
