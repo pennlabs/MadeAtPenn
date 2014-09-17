@@ -95,7 +95,12 @@
 
     <input type="hidden" name="id" value= <%= projects._id %> />
 
-    <input type="submit" />
+    <input type="button" value="Update" name="update" onclick="askForUpdate()" />
+
+    <input type="button" value="Approve" name="approve" onclick="askForApprove()" />
+
+
+
 
   </form>
 
@@ -103,8 +108,27 @@
 
   </div>
 
+
+
     <% include footer %>
-
-
   </body>
+
+<script> 
+    <!---- //stackoverflow.com/questions/16660734/html-form-with-multiple-actions ---!>
+    var form=document.getElementById("form");
+    function askForUpdate() {
+        form.action= "/update/";
+        form.submit();
+    };
+    function askForApprove() {
+        form.action='/approve/';
+        form.submit();
+    };
+</script>
+
+
+
+
+
+
   </html>

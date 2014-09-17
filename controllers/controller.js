@@ -219,11 +219,37 @@ exports.update_project = function(req, res) {
 
 	Project.findOneAndUpdate({"_id": new ObjectId(req.body.id)}, updates, options, function(err, data) {
 		if(!err) {
-			res.redirect("/admin");
-		} 
+	  				res.redirect("/admin");
+			};
 		res.send(err);
 	}); 
+};
+
+//allows admin to approve application
+exports.approve_project = function(req, res) {
+	Project.findOneAndUpdate({"_id": new ObjectId(req.body.id)}, 
+		{approved: 1}, function(err, data) {
+		if(!err) {
+			console.log(data);
+			var email = new sendgrid.Email({
+					to: req.body.contact,
+					from: 'pennappslabs@gmail.com',
+					bcc: 'pennappslabs@gmail.com',
+					subject:'[MadeAtPenn] Project Approved!',
+				});
+			email.setHtml('<p>Hey there! <br /> ' + req.body.app_name + ' has been approved! '+ 
+			 			'You can check it out <a href="madeatpenn.pennlabs.org/">here</a>. Keep up the good work!' + 
+			 			'<br /> Sincerely, <br /> Penn Labs</p>');
+			sendgrid.send(email, function(err, json) {
+				if (err) { return console.error(err); }
+				console.log(json);
+			});
+		res.redirect("/admin");
+		}
+		res.send(err);
+		})
 }
+
 
 //for autocomplete in tags
 exports.search_tags = function(req, res) {
@@ -276,6 +302,7 @@ exports.create = function(req, res) {
 					function(callback) {
 						var email     = new sendgrid.Email({
 							to:       req.body.contact,
+							bcc: 'pennappslabs@gmail.com',
 							from:     'pennappslabs@gmail.com',
 							subject:  '[MadeAtPenn] Thanks for your submission!',
 						});
