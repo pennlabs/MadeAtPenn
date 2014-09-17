@@ -474,7 +474,7 @@ body {
 /* ---- submit page */
 
 #pennlabs-submit {
-	width: 100%;
+	width: 400px;
 	background-color:rgb(142,68,173);
 	color: white; 
 	margin-top: 15px;
@@ -509,11 +509,12 @@ body {
 }
 
 #form {
-	padding: 40px;
+	background-color: rgb(245,245,245);
 }
 
-.backgroundForm {
-	background-color: rgb(245,245,245);
+#form form {
+	margin-left: 30%;
+	padding: 30px;
 }
 
 
@@ -541,7 +542,7 @@ body {
 
 .whatCalled {
 	font-size: 23px;
-    margin-top: -7px;
+  /*  margin-top: -7px; */
 }
 
 @media(max-width: 886px) {
@@ -559,6 +560,7 @@ body {
 
 .desc {
 	height: 200px !important;
+	width: 400px;
 }
 
 .builders {
@@ -570,17 +572,24 @@ body {
 	margin-bottom: 15px;
 }
 
+.contact {
+	margin-top: 10px;
+}
+
 
  .demo, .githubLink {
 	margin-top: 10px;
 }
 
-.demoLabel, .githubLinkLabel {
+.demoLabel, .githubLinkLabel, .contactLabel {
 	width: 400px;
 }
 .appTags {
 	width: 230px;
 }
 
+.tag-label {
+	padding: 5px;
+}
 
 

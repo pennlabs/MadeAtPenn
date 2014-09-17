@@ -84,24 +84,25 @@
 
     <p>Made At Penn is a new initiative by Labs and the Dining Philosophers to showcase projects and startups created and launched by Penn students and alumni. The goal is bring the tech and entrepreneurship community closer by highlighting the work of individuals and groups. 
     </p>
+    <br />
   </div>
 
   <div id="form" class="form-group backgroundForm">
     <form action="/post" method="POST">
 
       <div class="rowSpacing">
-        <div class = "submitFormItem">
-          <label for="project_or_startup"> Is this a project or a startup: </label>
+       <!---- <div class = "submitFormItem">
           <span class="pOrJSpacing"> 
             <input type="radio" name="project_or_startup" value="project">    Project 
             <span class="pOrJSpacing"> 
               <input type="radio" name="project_or_startup" value="startup">   Startup 
             </span>
           </span>
-        </div>
+        </div> 
+        ---->
 
         <div class ="submitFormItem">
-          <div class="submitItemTitle"><label for="app_name" class="whatCalled"> What's it called? </label>
+          <div class="submitItemTitle"><label for="app_name" class="whatCalled"> Project Title </label>
             <div class="formSpacing">
               <input type="text" name="app_name" size="20" class="form-control" placeholder="" style="font-size: 18px">
             </div>
@@ -118,13 +119,15 @@
         </div>
       </div>  
       
-      <div class="contact">
+     
+    </div>
+
+     <div class="contact">
         <label for="contact"> Contact email?</label>
         <div class="contactLabel">
-          <input type="text" name="contact" size="20" class="form-control" placeholder="d@upenn.edu">
+          <input type="text" name="contact" size="20" class="form-control" placeholder="clara@labs.upenn.edu">
         </div>
       </div>
-    </div>
 
       <div class="demo">
         <label for="demo"> Please enter a link to your project/startup: </label>
@@ -142,19 +145,22 @@
       <br>  
 
       
-        <label for="description"> Please write a brief description. Where was this built? How? (125 character max). </label>
-        <textarea id="desc" type="text" maxlength="125" name="description" size="100" class="form-control" placeholder=""></textarea>
+        <label for="description"> Please write a brief description. (125 character max). </label>
+        <div>
+          <textarea class="desc" type="text" maxlength="125" name="description" size="100" class="form-control" placeholder=""></textarea>
+      </div>
       <br>
 
 
       <div class ="submitFormItem">
-        <div class="submitItemTitle"><label for="tags" style="display: inline"> Tags</label>
+        <div class="submitItemTitle"><label for="tags" style="display: inline; margin-top:5px"> Tags</label>
           <div class="formSpacing appTags">
             <input type="text" name="tags" size="20" id="tags" class="form-control" placeholder="Python, Flask, EdTech">
           </div>
         </div>
       </div>
 
+      <br />
 
       <input type="hidden" name="approved" size="40" class="form-control" value ="0" >
       
