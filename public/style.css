@@ -1,48 +1,48 @@
 html,
 body {
-  height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
-  margin:0;
-  padding:0;
-  font-family: 'Lato', sans-serif;
+	height: 100%;
+	/* The html and body elements cannot have any padding or margin. */
+	margin:0;
+	padding:0;
+	font-family: 'Lato', sans-serif;
 	font-weight:200;
-  	font-size: 1em;
+	font-size: 1em;
 	color: #2d3038;
 	min-width: 750px;
 }
 
 ::-webkit-input-placeholder {
-   font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-weight:200;
-  	font-size: 1em;
+	font-size: 1em;
 
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-weight:200;
-  	font-size: 1em;
+	font-size: 1em;
 
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-weight:200;
-  	font-size: 1em;
+	font-size: 1em;
 
 }
 
 :-ms-input-placeholder {  
-   font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-weight:200;
-  	font-size: 1em;
+	font-size: 1em;
 }
 
 @font-face {
-  font-family: 'Bebas Neue';
-  font-style: normal;
-  font-weight: normal;
-  src: url('../BebasNeue.ttf');
+	font-family: 'Bebas Neue';
+	font-style: normal;
+	font-weight: normal;
+	src: url('../BebasNeue.ttf');
 }
 
 @font-face {
@@ -60,12 +60,12 @@ body {
 }
 
 #banner {
-  margin: 0px;
-  padding-bottom: 0px;
-  padding: 0px;
-  height: 60px;
-  width: 100%;
-  background-color: #2d3038;
+	margin: 0px;
+	padding-bottom: 0px;
+	padding: 0px;
+	height: 60px;
+	width: 100%;
+	background-color: #2d3038;
 }
 
 #banner a {
@@ -144,7 +144,7 @@ body {
 	vertical-align: middle;
 	background-color: #2d3038;
 	font-size: 1.1em;
-    font-family: "Bebas Neue",sans-serif;
+	font-family: "Bebas Neue",sans-serif;
 	letter-spacing: 2px;
 	font-weight: 100;
 }
@@ -164,24 +164,26 @@ body {
 	width: 12%;
 	text-align: center;
 	vertical-align: middle;
+	padding-top: 15px;
 }
 #nav-home:hover {
 	background-color: #3498db;
 }
 
 .top p {
-    position: relative;
-    top: 30%;
-    -ms-transform: translateY(-50%);
-    -wekbit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    border-left: 1px solid white;
+	position: relative;
+	top: 30%;
+	-ms-transform: translateY(-50%);
+	-wekbit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	border-left: 1px solid white;
 }
 
 #nav-projects {
 	width: 12%;
 	text-align: center;
 	vertical-align: middle;
+	padding-top: 15px;
 }
 #nav-projects:hover {
 	background-color: #c0392b;
@@ -191,7 +193,9 @@ body {
 #nav-startups {
 	width: 12%;
 	text-align: center;
-	vertical-align: middle;}
+	vertical-align: middle;
+	padding-top: 15px;
+}
 
 #nav-startups:hover {
 	background-color: #27ae60;
@@ -201,10 +205,11 @@ body {
 	width: 12%;
 	text-align: center;
 	vertical-align: middle;
+	padding-top: 15px;
 }
 
 #nav-faq:hover {
-     background-color: #e67e22;
+	background-color: #e67e22;
 }
 
 #nav-submit {
@@ -212,6 +217,7 @@ body {
 	text-align: center;
 	vertical-align: middle;
 	border-right: 0px;
+	padding-top: 15px;
 }
 
 #nav-submit:hover {
@@ -221,14 +227,14 @@ body {
 
 
 #banner h1 {
-  position: relative;
-  top: 15px;
-  font-family: "Bebas Neue",sans-serif;
-  font-weight: 300;
-  padding-left: 20px;
-  display: inline-block;
-  margin:0;
-  color: white;
+	position: relative;
+	top: 15px;
+	font-family: "Bebas Neue",sans-serif;
+	font-weight: 300;
+	padding-left: 20px;
+	display: inline-block;
+	margin:0;
+	color: white;
 }
 
 
@@ -253,9 +259,9 @@ body {
 }
 
 #footer {
-  height: 60px;
-  background-color: #f5f5f5;
-  width: 100%;
+	height: 60px;
+	background-color: #f5f5f5;
+	width: 100%;
 }
 
 .search {
@@ -274,22 +280,22 @@ body {
 
 
 .section-header {
-	  font-family: "Bebas Neue",sans-serif;
-	  font-size: 4em;
+	font-family: "Bebas Neue",sans-serif;
+	font-size: 4em;
 }
 
 
 
 
 .underline_divider {
-  text-align: center;
-  border-bottom: 10px solid #2d3038;
-  width: 90px;
-  margin: 10px 10px 10px 10px;
-  margin-bottom: 40px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+	text-align: center;
+	border-bottom: 10px solid #2d3038;
+	width: 90px;
+	margin: 10px 10px 10px 10px;
+	margin-bottom: 40px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
@@ -301,14 +307,14 @@ body {
 
 #featured-title .underline_divider {
 	float: left;
-	 margin: 0px;
+	margin: 0px;
 
 }
 
 .app_image {
 	position: relative;
 	width: 100%;
-		  border: 1px solid gray;
+	border: 1px solid gray;
 
 }
 
@@ -323,7 +329,7 @@ body {
 	color: white;
 	font-family: 'Lato', sans-serif;
 	font-weight: 200;
-  	font-size: .9em;
+	font-size: .9em;
 	height: 200px;
 	padding: 10px 10px;
 }
@@ -350,7 +356,7 @@ body {
 .center {
 	margin-left: 90px;
 }
- 
+
 
 .view-background {
 	background-color: rgba(0, 0, 0, 0.2);
@@ -398,7 +404,7 @@ body {
 .app_title h2 {
 	font-family: 'Lato', sans-serif;
 	font-weight:200;
-    font-size: 23px;
+	font-size: 23px;
 	letter-spacing: 1px;
 	color: #2d3038;
 	margin: 5px 0px 0px 0px;
@@ -408,8 +414,8 @@ body {
 .app_title h3 {
 	font-family: 'Lato', sans-serif;
 	font-weight:200;
-  	font-size: 1em;
-  	letter-spacing: 1px;
+	font-size: 1em;
+	letter-spacing: 1px;
 	color: gray;
 	margin: -15px 0px 0px 0px;
 	padding: 0px;
@@ -419,53 +425,60 @@ body {
 }
 
 .project {
-  display: inline-block;
-  box-sizing: border-box;
-  width: auto;
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-top: 5px;
-  margin-bottom: 50px;
-  text-align: left;
-  vertical-align: top;
-  height: auto;
+	display: inline-block;
+	box-sizing: border-box;
+	width: auto;
+	margin-left: 25px;
+	margin-right: 25px;
+	margin-top: 5px;
+	margin-bottom: 50px;
+	text-align: left;
+	vertical-align: top;
+	height: auto;
 }
 
 
 #projects{
-  text-align: center;
-  margin-top:50px;
-  margin-bottom:100px;
+	text-align: center;
+	margin-top:50px;
+	margin-bottom:100px;
 }
 
 .icon {
-  height: 32px;
-  vertical-align: middle;
-  opacity: 0.5;
+	height: 32px;
+	vertical-align: middle;
+	opacity: 0.5;
 }
 
 #social {
-  height: 60px;
-  line-height: 60px;
-  width: 100%;
+	height: 60px;
+	line-height: 60px;
+	width: 100%;
 }
 
 #social a:first-child {
-  margin-left: 15px;
+	margin-left: 15px;
 }
 
 #social a {
-  position: relative;
-  top: -2px;
+	position: relative;
+	top: -2px;
 }
 
 #social span {
-  margin-left: 10px;
-  opacity: 0.4;
-  line-height:60px;
+	margin-left: 10px;
+	opacity: 0.4;
+	line-height:60px;
 }
 
 /* ---- submit page */
+
+#pennlabs-submit {
+	width: 100%;
+	background-color:rgb(142,68,173);
+	color: white; 
+	margin-top: 15px;
+}
 
 #submit_description {
 	padding: 40px 40px 0px 40px;
@@ -474,7 +487,7 @@ body {
 #submit_description h2 {
 	font-family: 'Lato', sans-serif;
 	font-weight:100;
-    font-size: 23px;
+	font-size: 23px;
 	letter-spacing: 1px;
 	color: #2d3038;
 	margin: 5px 0px 10px 0px;
@@ -488,7 +501,7 @@ body {
 #faq_description h2 {
 	font-family: 'Lato', sans-serif;
 	font-weight:100;
-    font-size: 23px;
+	font-size: 23px;
 	letter-spacing: 1px;
 	color: #2d3038;
 	margin: 5px 0px 10px 0px;
@@ -499,6 +512,75 @@ body {
 	padding: 40px;
 }
 
+.backgroundForm {
+	background-color: rgb(245,245,245);
+}
+
+
+.submitFormItem {
+	display: inline;
+	margin-bottom: 10px;
+}
+
+.submitItemTitle {
+	display: inline-flex;
+	vertical-align: text-top;
+}
+
+.inlineRow{
+	display: -webkit-box;
+}
+
+.formSpacing {
+	margin-left: 15px;
+}
+
+.pOrJSpacing {
+	margin-right: 30px;
+}
+
+.whatCalled {
+	font-size: 23px;
+    margin-top: -7px;
+}
+
+@media(max-width: 886px) {
+	.whatCalled {
+		margin-top: 0px;
+	}
+	.submitItemTitle {
+		margin-top: 10px;
+	}
+}
+
+.whoMargin {
+	margin-right: 15px;
+}
+
+.desc {
+	height: 200px !important;
+}
+
+.builders {
+	width: 400px;
+	margin-right: 15px;
+}
+
+.rowSpacing {
+	margin-bottom: 15px;
+}
+
+
+ .demo, .githubLink {
+	margin-top: 10px;
+}
+
+.demoLabel, .githubLinkLabel {
+	width: 400px;
+}
+.appTags {
+	width: 230px;
+}
 
 
 

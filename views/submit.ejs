@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
-    <title>Submit your application!</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+  <title>Submit your application!</title>
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-    <!-- Bootstrap core CSS -->
-    <link href="/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <!-- Bootstrap core CSS -->
+  <link href="/bootstrap.css" rel="stylesheet">
 
-    <link href="/style.css" rel="stylesheet" type="text/css">
+  <link href="/style.css" rel="stylesheet" type="text/css">
 
-   
-    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script>
-  $(function() {
+    $(function() {
       /*function log( message ) {
         $( "<div>" ).text( message ).prependTo( "#log" );
         $( "#log" ).scrollTop( 0 );
       }
       */
       $("#tags").autocomplete({
-          source: function(request, response) {
-              var results = []
-              $.get('/search/' + request.term, function(data) {
-                  console.log(data);
-                  $.each(data.elements, function(index, item) {
-                      var itemToAdd = {
-                        value : item,
-                        label : item,
-                      } 
-                      results.push(itemToAdd);
-                    });               
-              return response(results);
-              });
-          }
-        });
+        source: function(request, response) {
+          var results = []
+          $.get('/search/' + request.term, function(data) {
+            console.log(data);
+            $.each(data.elements, function(index, item) {
+              var itemToAdd = {
+                value : item,
+                label : item,
+              } 
+              results.push(itemToAdd);
+            });               
+            return response(results);
+          });
+        }
+      });
     });
 
 /*    window.onload = function() {
@@ -52,101 +52,128 @@
     } 
     */
 
-</script>
+  </script>
 
-<style>
-  #nav-submit{
-  background-color: #8e44ad;
-;
-  }
-
-  
-  #banner {
-    border-bottom: 3px solid #8e44ad;
-  }
+  <style>
+    #nav-submit{
+      background-color: #8e44ad;
+      ;
+    }
 
 
-</style>
+    #banner {
+      border-bottom: 3px solid #8e44ad;
+    }
+
+
+  </style>
 
 
 
-  </head>
+</head>
 
-  <body>
+<body>
 
   <% include banner %>
 
 
-<div id="submit_description">
+  <div id="submit_description">
 
 
-      <h2>Interested in submitting your project?</h2>
+    <h2>Interested in submitting your project?</h2>
+
+    <p>Made At Penn is a new initiative by Labs and the Dining Philosophers to showcase projects and startups created and launched by Penn students and alumni. The goal is bring the tech and entrepreneurship community closer by highlighting the work of individuals and groups. 
+    </p>
+  </div>
+
+  <div id="form" class="form-group backgroundForm">
+    <form action="/post" method="POST">
+
+      <div class="rowSpacing">
+        <div class = "submitFormItem">
+          <label for="project_or_startup"> Is this a project or a startup: </label>
+          <span class="pOrJSpacing"> 
+            <input type="radio" name="project_or_startup" value="project">    Project 
+            <span class="pOrJSpacing"> 
+              <input type="radio" name="project_or_startup" value="startup">   Startup 
+            </span>
+          </span>
+        </div>
+
+        <div class ="submitFormItem">
+          <div class="submitItemTitle"><label for="app_name" class="whatCalled"> What's it called? </label>
+            <div class="formSpacing">
+              <input type="text" name="app_name" size="20" class="form-control" placeholder="" style="font-size: 18px">
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+     <div class="inlineRow">
+      <div class="builders">
+        <label for="builders"> Who built this? (full names) </label>
+        <div class="contactLabel">
+         <input type="text" name="builders" size="80" class="form-control builders" placeholder="Amy Gutman, Dhruv Maheshwari, Jake Noonan ">
+        </div>
+      </div>  
       
-      <p>Made At Penn is a new initiative by Labs and the Dining Philosophers to showcase projects and startups created and launched by Penn students and alumni. The goal is bring the tech and entrepreneurship community closer by highlighting the work of individuals and groups. 
-      </p>
-</div>
+      <div class="contact">
+        <label for="contact"> Contact email?</label>
+        <div class="contactLabel">
+          <input type="text" name="contact" size="20" class="form-control" placeholder="d@upenn.edu">
+        </div>
+      </div>
+    </div>
 
-<div id="form" class="form-group">
+      <div class="demo">
+        <label for="demo"> Please enter a link to your project/startup: </label>
+        <div class="demoLabel">
+        <input type="url" name="demo" size="20" class="form-control" placeholder="http://pennlabs.herokuapp.com">
+        </div>
+      </div>
 
-  <form action="/post" method="POST">
-    <label for="project_or_startup"> Is this a project or a startup: </label>
-    <input type="radio" name="project_or_startup" value="project">    Project 
-    <input type="radio" name="project_or_startup" value="startup">   Startup
-    <br />
-  
-    <label for="app_name"> What's it called? </label>
-    <input type="text" name="app_name" size="20" class="form-control" placeholder=""><br>
+      <div class="githubLink">
+        <label for="github"> Github link?</label>
+        <div class="githubLinkLabel">
+          <input type="text" name="github" size="20" class="form-control" placeholder="https://github.com/pennappslabs">
+        </div>
+      </div>
+      <br>  
 
-    <label for="description"> Please write a brief description (125 char max). </label>
-    <input type="text" maxlength="125" name="description" size="80" class="form-control" placeholder=""><br>
-
-
-    <label for="demo"> Please enter a link to your project/startup: </label>
-    <input type="url" name="demo" size="20" class="form-control" placeholder="ie. http://pennlabs.herokuapp.com"><br>
+      
+        <label for="description"> Please write a brief description. Where was this built? How? (125 character max). </label>
+        <textarea id="desc" type="text" maxlength="125" name="description" size="100" class="form-control" placeholder=""></textarea>
+      <br>
 
 
-    <label for="location"> Where/When was this built? </label>
-    <input type="text" name="location" size="20" class="form-control" placeholder="ie. PennApps S14"><br>
+      <div class ="submitFormItem">
+        <div class="submitItemTitle"><label for="tags" style="display: inline"> Tags</label>
+          <div class="formSpacing appTags">
+            <input type="text" name="tags" size="20" id="tags" class="form-control" placeholder="Python, Flask, EdTech">
+          </div>
+        </div>
+      </div>
 
-    <label for="technologies"> What technologies did you use to create your app? </label>
-    <input type="text" name="technologies" size="20" class="form-control" placeholder="ie. Python/Flask"><br>
 
-    <label for="builders"> Who built this?/Who are the co-founders? (Full Names?) </label>
-    <input type="text" name="builders" size="80" class="form-control" placeholder="ie. Amy Gutmann, Alexey Komisaalala"><br>
+      <input type="hidden" name="approved" size="40" class="form-control" value ="0" >
+      
+      <button type="submit" id="pennlabs-submit" class="btn btn-default"> Submit </button>
 
-    <label for="date"> Until when should this app stay up? (Ignore for startups) </label>
-    <input type="date" name="date" size="20" class="form-control" placeholder=" MM/DD/YYYY"><br>
-
-    <label for="contact"> Contact email for this?</label>
-    <input type="text" name="contact" size="20" class="form-control" placeholder="d@upenn.edu"><br>
-
-    <label for="github"> Github link?</label>
-    <input type="text" name="github" size="20" class="form-control" placeholder=""><br>
-
-    <label for="tags"> Tags</label>
-    <input type="text" name="tags" size="20" id="tags" class="form-control" placeholder="tag"><br>
-
-      <label for="personal"> Personal websites?</label>
-    <input type="text" name="personal" size="40" class="form-control" placeholder="http://pennlabs.org, http://penn.com"><br>
-
-    <input type="hidden" name="approved" size="40" class="form-control" value ="0" >
-
-    <button type="submit" id="pennlabs-submit" class="btn btn-default"> Submit </button>
-
-  </form>
+    </form>
   </div>
 
 
 
-    <% include footer %>
+  <% include footer %>
 
 
 
 
 
-  </body>
+</body>
 
 
 
 
-  </html>
+</html>
