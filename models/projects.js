@@ -4,7 +4,7 @@ var Schema = mongoose.Schema
 var getTags = function (tags) {
 	console.log("reached get");
 	return tags.join(',');
-}
+};
 
 var setTags = function(tags) {
 	console.log("reached set");
@@ -15,10 +15,10 @@ var setTags = function(tags) {
 		arr[i] = arr[i].toLowerCase();
 	}
 	return arr;
-}
+};
 
 var ProjectSchema = new Schema({
-  project_or_startup: { type: String, default: '', trim: true},
+  project_or_startup: { type: String, default: 'project', trim: true},
   app_name: { type: String, default: '', trim : true },
   description: { type: String, default: '', trim : true },
   demo_link: { type: String, default: '' },
@@ -34,7 +34,7 @@ var ProjectSchema = new Schema({
   approved: { type: Number, default: '' },
   image: { type: String, default:''},
   submittedAt : {type: Date, default: Date.now}
-})
+});
 
 
 ProjectSchema.statics = {

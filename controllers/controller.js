@@ -269,7 +269,7 @@ exports.search_findOne = function(req, res) {
 	Project.queryById(id, function(err, project){
 		return res.send(project);
 	});
-}
+};
 
 
 //creates new project
@@ -292,6 +292,7 @@ exports.create = function(req, res) {
 		personal : req.body.personal,
 		approved : req.body.approved,
 		});
+	console.log(project);
 
 	project.save(function(err, proj) {
 		if(err) {console.log(err);}
