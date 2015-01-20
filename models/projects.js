@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var getTags = function (tags) {
 	console.log("reached get");
@@ -48,11 +48,11 @@ ProjectSchema.statics = {
 	queryById: function(id, cb) {
 		this.find({_id: id}).exec(cb);
 	}
-}
+};
 
 var project = mongoose.model("Project", ProjectSchema);
 
 
 module.exports = {
 	Project : project
-}
+};
