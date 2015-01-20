@@ -26,7 +26,7 @@ exports.index = function(req, res) {
 		} else {
 			return res.render("main.ejs", {projects: projects});
 		}
-	})
+	});
 };
 
 //Page: image upload page
@@ -43,7 +43,7 @@ exports.startups = function(req, res) {
 		} else {
 			return res.render("startups.ejs", {projects: projects});
 		}
-	})
+	});
 };
 
 
@@ -92,7 +92,7 @@ exports.faq = function(req, res) {
 //Page: submit page
 exports.submit = function(req, res) {
 	res.render("submit.ejs", {error: "lalal"});
-}
+};
 
 //Page: filters images by tag
 exports.filter_by_tag = function(req, res) {
@@ -101,7 +101,7 @@ exports.filter_by_tag = function(req, res) {
 		if(err) {
 			return res.send(404);
 		} else {
-			var arr_projects = []
+			var arr_projects = [];
 			for(var i=0; i<project_names.length; i++) {
 				if(project_names[i] !== '') {
 					arr_projects.push(project_names[i].app_name);
@@ -111,7 +111,7 @@ exports.filter_by_tag = function(req, res) {
 				if(err) {
 					return res.send(404);
 				} else { 
-					console.log("querying multiple projects already")
+					console.log("querying multiple projects already");
 
 					return res.render("main.ejs", {projects: projects});
 				}
@@ -166,8 +166,8 @@ exports.check_login = function(req, res) {
 			return res.redirect('/login');
 		} else if (user.username == username && user.password == password) {
 			console.log("logged in");
-			req.session["logged"] = true;
-			req.session["username"] = username;
+			req.session.logged = true;
+			req.session.username = username;
 			return res.redirect('/admin');
 		} else {
 			return res.redirect('/login');
@@ -214,13 +214,13 @@ exports.update_project = function(req, res) {
 		github : req.body.github,
 		personal : req.body.personal,
 		approved : req.body.approved,
-	}
+	};
 	var options = {upsert: true};
 
 	Project.findOneAndUpdate({"_id": new ObjectId(req.body.id)}, updates, options, function(err, data) {
 		if(!err) {
 	  				res.redirect("/admin");
-			};
+			}
 		res.send(err);
 	}); 
 };
@@ -247,8 +247,8 @@ exports.approve_project = function(req, res) {
 		res.redirect("/admin");
 		}
 		res.send(err);
-		})
-}
+		});
+};
 
 
 //for autocomplete in tags
@@ -261,7 +261,7 @@ exports.search_tags = function(req, res) {
 			return res.send('options.ejs', {elements: tag_names});
 		}
 	});
-}
+};
 
 //finds single project based on id
 exports.search_findOne = function(req, res) {
@@ -323,13 +323,13 @@ exports.create = function(req, res) {
 							var tag = new Tag({
 								tag: tag_name,
 								app_name : req.body.app_name
-							})
+							});
 							tag.save(callback());
 						});
 						callback();
 					}
 				], 	function(err) {
-						if(err == null) {
+						if(err === null) {
 							res.redirect('/');
 						}
 					}

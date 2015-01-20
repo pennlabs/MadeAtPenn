@@ -4,7 +4,6 @@ var Project = require('./models/projects.js').Project;
 var User = require('./models/users.js').User;
 var mongoose = require("mongoose");
 
-
 var uristring =
 	process.env.MONGOLAB_URI ||
 	process.env.MONGOHQ_URL ||
@@ -56,6 +55,5 @@ app.post("/create_account", controller.create_account);
 app.get("/login", controller.login);
 app.post("/check_login", controller.check_login);
 app.get("/logout", controller.logout);
-
 
 module.exports = app;
