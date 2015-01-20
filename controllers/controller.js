@@ -4,9 +4,9 @@ var Tag = require('../models/tag').Tag;
 var mongoose = require('mongoose');
 var async = require("async");
 var knox = require('knox');
-var fs=require('fs');
+var fs = require('fs');
 var SHA3 = require("crypto-js/sha3");
-var sys=require('sys');
+var sys = require('sys');
 var sendgrid  = require('sendgrid')('pennlabs', 'spam4eva');
 var credentials = require("../config.json");
 
@@ -16,7 +16,7 @@ var client = knox.createClient({
 	bucket: 'penn-open-source'
 });
 
-var ObjectId= mongoose.Types.ObjectId;
+var ObjectId = mongoose.Types.ObjectId;
 
 //Page: homepage
 exports.index = function(req, res) {
@@ -102,7 +102,7 @@ exports.filter_by_tag = function(req, res) {
 			return res.send(404);
 		} else {
 			var arr_projects = [];
-			for(var i=0; i<project_names.length; i++) {
+			for(var i = 0; i<project_names.length; i++) {
 				if(project_names[i] !== '') {
 					arr_projects.push(project_names[i].app_name);
 				}
