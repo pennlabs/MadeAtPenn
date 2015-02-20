@@ -1,7 +1,7 @@
-PennOpenSource
+Made At Penn
 ==============
 
-Home of Penn Projects
+Made At Penn is a showcase for startups and projects created by Penn students and alumni. Originally intended as a place to submit open source projects created at Penn, it is now open to the wider CS community to submit projects and startups that they are proud of.
 
 TODO
 ----
