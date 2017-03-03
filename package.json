@@ -15,7 +15,12 @@
     "sendgrid": "1.1.1",
     "crypto-js": "*"
   },
-  "devDependencies": {},
+  "scripts": {
+    "lint": "eslint **/"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/pennlabs/MadeAtPenn"
