@@ -299,42 +299,47 @@ exports.create = function(req, res) {
   });
   console.log(project);
 
+  var sendEmail = function(callback) {
+    var email     = new sendgrid.Email({
+      to: req.body.contact,
+      bcc: 'contact@pennlabs.org',
+      from: 'contact@pennlabs.org',
+      subject: '[MadeAtPenn] Thanks for your submission!',
+    });
+    email.setHtml('<p>Hey there! <br /> Thanks for submitting to MadeAtPenn. ' +
+                  'We\'re incredibly excited to check out what you made! You\'ll get another email once ' +
+                  'your app has been approved and published online! In the meantime, be sure check out ' +
+                  'your classmate\'s hacks <a href="madeatpenn.pennlabs.org">here</a>! <br /> Sincerely, <br /> Penn Labs</p>');
+    sendgrid.send(email, function(err, json) {
+      if (err) { return console.error(err); }
+      console.log(json);
+      callback();
+    });
+  };
+
+  var addTags = function(callback) {
+    var tags = req.body.tags.split(/,| /);
+    async.each(tags, function(tagName, callback) {
+      var tag = new Tag({
+        tag: tagName,
+        app_name: req.body.app_name
+      });
+      tag.save(callback());
+    });
+    callback();
+  }
+
   project.save(function(err, proj) {
     if (err) { console.log(err); }
-
     async.parallel([
-      function(callback) {
-        var email     = new sendgrid.Email({
-          to: req.body.contact,
-          bcc: 'contact@pennlabs.org',
-          from: 'contact@pennlabs.org',
-          subject: '[MadeAtPenn] Thanks for your submission!',
-        });
-        email.setHtml('<p>Hey there! <br /> Thanks for submitting to MadeAtPenn. ' +
-                      'We\'re incredibly excited to check out what you made! You\'ll get another email once ' +
-                      'your app has been approved and published online! In the meantime, be sure check out ' +
-                      'your classmate\'s hacks <a href="madeatpenn.pennlabs.org">here</a>! <br /> Sincerely, <br /> Penn Labs</p>');
-        sendgrid.send(email, function(err, json) {
-          if (err) { return console.error(err); }
-          console.log(json);
-          callback();
-        });
-      },
-      function(callback) {
-        var tags = req.body.tags.split(/,| /);
-        async.each(tags, function(tagName, callback) {
-          var tag = new Tag({
-            tag: tagName,
-            app_name: req.body.app_name
-          });
-          tag.save(callback());
-        });
-        callback();
-      }
+      sendEmail,
+      addTags
     ], function(err) {
-      if (err === null) {
-        res.redirect('/');
+      if (err) {
+        console.log(err);
+        res.send(404);
       }
+      return res.redirect('/');
     });
   });
 };
