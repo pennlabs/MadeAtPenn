@@ -519,6 +519,7 @@ body {
 }
 
 .inlineRow{
+  padding-top: 1em;
   display: -webkit-box;
 }
 
@@ -528,6 +529,11 @@ body {
 
 .pOrJSpacing {
   margin-right: 30px;
+}
+
+.pOrJSpacing input[type=radio] {
+  margin-right: 1em;
+  margin-left: 4em;
 }
 
 .whatCalled {
