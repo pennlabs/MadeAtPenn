@@ -9,5 +9,5 @@ var TechnologySchema = new Schema({
 var tech = mongoose.model("Technology", TechnologySchema);
 
 module.exports = {
-	Tech: tech
+  Tech: tech
 };
