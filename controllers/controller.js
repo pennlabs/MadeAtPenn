@@ -59,7 +59,7 @@ exports.projects = function(req, res) {
 
 //Page: admin page
 exports.admin = function(req, res) {
-  if  (req.session.logged) {
+  if (req.session.logged) {
     Project.list(function(err, projects) {
       if (err) {
         return res.send(404);
@@ -197,7 +197,6 @@ exports.upload = function(req, res) {
     });
   });
 };
-
 
 
 //handles update for an edit page

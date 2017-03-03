@@ -4,12 +4,12 @@ var path = require('path');
 var app = express();
 var Project = require('./models/projects.js').Project;
 var User = require('./models/users.js').User;
-var MONGO_URI = require('./constants').MONGO_URI
+var constants = require('./constants')
 
 var uristring =
 	process.env.MONGOLAB_URI ||
 	process.env.MONGOHQ_URL ||
-  MONGO_URI
+  constants.MONGO_URI
 
 mongoose.connect(uristring, function(err, res) {
   if (err) {
@@ -19,20 +19,19 @@ mongoose.connect(uristring, function(err, res) {
   }
 });
 
-
 app.use(express.cookieParser());
 app.use(express.session({secret: 'session'}));
 app.use(express.logger("default"));
 app.use(express.bodyParser())
-   .use(express.methodOverride())
-   .use(app.router)
-   .use(express.multipart());
+app.use(express.methodOverride())
+app.use(app.router)
+app.use(express.multipart());
 
 //controllers
 var controller = require('./controllers/controller.js');
 app.use(express.static(path.join(__dirname, '/public')));
 
-var port = Number(process.env.PORT || 5000);
+var port = Number(process.env.PORT || constants.PORT);
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
@@ -42,20 +41,21 @@ app.get("/edit/:id", controller.edit);
 app.get("/admin", controller.admin);
 app.get("/submit", controller.submit);
 app.get("/tag/:tag", controller.filter_by_tag);
-app.post("/post", controller.create);
 app.get("/search/:tag", controller.search_tags);
 app.get("/searchOne/:id", controller.search_findOne);
-app.post("/update", controller.update_project);
-app.post("/approve", controller.approve_project);
 app.get("/image_upload/:id", controller.upload_page);
-app.post("/upload", controller.upload);
 app.get('/faq', controller.faq);
 app.get("/projects", controller.projects);
 app.get("/startups", controller.startups);
 app.get("/create_account_page", controller.create_account_page);
-app.post("/create_account", controller.create_account);
 app.get("/login", controller.login);
-app.post("/check_login", controller.check_login);
 app.get("/logout", controller.logout);
+
+app.post("/update", controller.update_project);
+app.post("/approve", controller.approve_project);
+app.post("/upload", controller.upload);
+app.post("/create_account", controller.create_account);
+app.post("/post", controller.create);
+app.post("/check_login", controller.check_login);
 
 module.exports = app;

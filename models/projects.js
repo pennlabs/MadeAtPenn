@@ -11,8 +11,7 @@ var setTags = function(tags) {
   console.log(tags);
   var arr = tags.split(/,| /);
   for (var i = 0; i < arr.length; i++) {
-    arr[i] = arr[i].trim();
-    arr[i] = arr[i].toLowerCase();
+    arr[i] = arr[i].toLowerCase().trim();
   }
   return arr;
 };
@@ -44,14 +43,12 @@ ProjectSchema.statics = {
   queryMultipleByName: function(arrProjects, cb) {
     this.find({app_name: {$in: arrProjects}}).exec(cb);
   },
-
   queryById: function(id, cb) {
     this.find({_id: id}).exec(cb);
   }
 };
 
 var project = mongoose.model("Project", ProjectSchema);
-
 
 module.exports = {
   Project: project

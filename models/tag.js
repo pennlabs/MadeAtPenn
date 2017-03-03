@@ -2,16 +2,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var setTag = function(tag) {
-  var tagClean = tag.toLowerCase();
-  tagClean = tagClean.trim();
-  return tagClean;
+  return tag.toLowerCase().trim();
 };
 
 var TagSchema = new Schema({
   tag: { type: String, set: setTag, default: '' },
   app_name: { type: String, default: '' }
 });
-
 
 TagSchema.statics = {
   list: function(tagName, cb) {
