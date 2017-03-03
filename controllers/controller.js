@@ -7,11 +7,11 @@ var knox = require('knox');
 var fs = require('fs');
 var SHA3 = require("crypto-js/sha3");
 var sendgrid  = require('sendgrid')('pennlabs', 'spam4eva');
-var credentials = require("../config.json");
+var constants = require("../constants");
 
 var client = knox.createClient({
-  key: credentials.accessKeyId,
-  secret: credentials.secretAccessKey,
+  key: constants.ACCESS_KEY_ID,
+  secret: constants.SECRET_ACCESS_KEY,
   bucket: 'penn-open-source'
 });
 

@@ -4,11 +4,12 @@ var path = require('path');
 var app = express();
 var Project = require('./models/projects.js').Project;
 var User = require('./models/users.js').User;
+var MONGO_URI = require('./constants').MONGO_URI
 
 var uristring =
 	process.env.MONGOLAB_URI ||
 	process.env.MONGOHQ_URL ||
-	'mongodb://localhost/express-projects';
+  MONGO_URI
 
 mongoose.connect(uristring, function(err, res) {
   if (err) {
