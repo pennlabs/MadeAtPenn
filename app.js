@@ -1,25 +1,26 @@
 var express = require('express');
+var mongoose = require("mongoose");
+var path = require('path');
 var app = express();
 var Project = require('./models/projects.js').Project;
 var User = require('./models/users.js').User;
-var mongoose = require("mongoose");
 
 var uristring =
 	process.env.MONGOLAB_URI ||
 	process.env.MONGOHQ_URL ||
 	'mongodb://localhost/express-projects';
 
-mongoose.connect(uristring, function (err, res) {
+mongoose.connect(uristring, function(err, res) {
   if (err) {
-  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    console.log('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
-  console.log ('Succeeded connected to: ' + uristring);
+    console.log('Succeeded connected to: ' + uristring);
   }
 });
 
 
-app.use(express.cookieParser() );
-app.use(express.session({secret:'session'}));
+app.use(express.cookieParser());
+app.use(express.session({secret: 'session'}));
 app.use(express.logger("default"));
 app.use(express.bodyParser())
    .use(express.methodOverride())
@@ -28,7 +29,7 @@ app.use(express.bodyParser())
 
 //controllers
 var controller = require('./controllers/controller.js');
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, '/public')));
 
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {
