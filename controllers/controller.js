@@ -6,7 +6,7 @@ var async = require("async");
 var knox = require('knox');
 var fs = require('fs');
 var SHA3 = require("crypto-js/sha3");
-require('dotenv').config()
+require('dotenv').config();
 
 var sendgrid  = require('sendgrid')('pennlabs', process.env.SENDGRID_API_KEY);
 var client = knox.createClient({
@@ -188,7 +188,7 @@ exports.upload = function(req, res) {
     }
     console.log(req.files.image.path);
     var imageFilename = 'images/' + id + ".jpg";
-    var imageFiletype = {'Content-Type': 'image/jpeg', 'x-amz-acl': 'public-read'}
+    var imageFiletype = {'Content-Type': 'image/jpeg', 'x-amz-acl': 'public-read'};
     client.putFile(req.files.image.path, imageFilename, imageFiletype, function(err, result) {
       if (err) {
         console.log('Failed to upload file to Amazon S3');
@@ -329,7 +329,7 @@ exports.create = function(req, res) {
       tag.save(callback());
     });
     callback();
-  }
+  };
 
   project.save(function(err, proj) {
     if (err) { console.log(err); }

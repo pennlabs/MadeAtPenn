@@ -17,7 +17,7 @@
     "sendgrid": "^1.1.1"
   },
   "scripts": {
-    "lint": "eslint **/"
+    "lint": "eslint ."
   },
   "devDependencies": {
     "eslint": "^3.16.1"
