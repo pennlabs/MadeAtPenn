@@ -163,6 +163,9 @@ exports.check_login = function(req, res) {
     if (err) {
       console.log(err);
       return res.redirect('/login');
+    } else if (user === null) {
+      console.log("User is null!");
+      return res.redirect('/login');
     } else if (user.username === username && user.password === password) {
       console.log("logged in");
       req.session.logged = true;
