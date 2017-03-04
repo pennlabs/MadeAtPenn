@@ -6,12 +6,12 @@ var async = require("async");
 var knox = require('knox');
 var fs = require('fs');
 var SHA3 = require("crypto-js/sha3");
-var sendgrid  = require('sendgrid')('pennlabs', 'spam4eva');
-var constants = require("../constants");
+require('dotenv').config()
 
+var sendgrid  = require('sendgrid')('pennlabs', process.env.SENDGRID_API_KEY);
 var client = knox.createClient({
-  key: constants.ACCESS_KEY_ID,
-  secret: constants.SECRET_ACCESS_KEY,
+  key: process.env.ACCESS_KEY_ID,
+  secret: process.env.SECRET_ACCESS_KEY,
   bucket: 'penn-open-source'
 });
 

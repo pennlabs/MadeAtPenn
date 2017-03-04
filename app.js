@@ -4,18 +4,14 @@ var path = require('path');
 var app = express();
 var Project = require('./models/projects.js').Project;
 var User = require('./models/users.js').User;
-var constants = require('./constants')
+require('dotenv').config()
 
-var uristring =
-	process.env.MONGOLAB_URI ||
-	process.env.MONGOHQ_URL ||
-  constants.MONGO_URI
-
-mongoose.connect(uristring, function(err, res) {
+var mongoURI = process.env.MONGO_URI
+mongoose.connect(mongoURI, function(err, res) {
   if (err) {
-    console.log('ERROR connecting to: ' + uristring + '. ' + err);
+    console.log('ERROR connecting to: ' + mongoURI + '. ' + err);
   } else {
-    console.log('Succeeded connected to: ' + uristring);
+    console.log('Succeeded connected to: ' + mongoURI);
   }
 });
 
@@ -31,7 +27,7 @@ app.use(express.multipart());
 var controller = require('./controllers/controller.js');
 app.use(express.static(path.join(__dirname, '/public')));
 
-var port = Number(process.env.PORT || constants.PORT);
+var port = Number(process.env.PORT);
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
