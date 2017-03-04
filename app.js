@@ -4,9 +4,9 @@ var path = require('path');
 var app = express();
 var Project = require('./models/projects.js').Project;
 var User = require('./models/users.js').User;
-require('dotenv').config()
+require('dotenv').config();
 
-var mongoURI = process.env.MONGO_URI
+var mongoURI = process.env.MONGO_URI;
 mongoose.connect(mongoURI, function(err, res) {
   if (err) {
     console.log('ERROR connecting to: ' + mongoURI + '. ' + err);
@@ -18,9 +18,9 @@ mongoose.connect(mongoURI, function(err, res) {
 app.use(express.cookieParser());
 app.use(express.session({secret: 'session'}));
 app.use(express.logger("default"));
-app.use(express.bodyParser())
-app.use(express.methodOverride())
-app.use(app.router)
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use(app.router);
 app.use(express.multipart());
 
 //controllers
