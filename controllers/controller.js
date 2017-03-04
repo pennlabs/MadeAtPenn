@@ -12,7 +12,7 @@ var sendgrid  = require('sendgrid')('pennlabs', process.env.SENDGRID_API_KEY);
 var client = knox.createClient({
   key: process.env.ACCESS_KEY_ID,
   secret: process.env.SECRET_ACCESS_KEY,
-  bucket: 'penn-open-source'
+  bucket: 'made.at.penn'
 });
 
 var ObjectId = mongoose.Types.ObjectId;
