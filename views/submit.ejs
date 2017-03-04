@@ -20,11 +20,6 @@
   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script>
     $(function() {
-      /*function log( message ) {
-        $( "<div>" ).text( message ).prependTo( "#log" );
-        $( "#log" ).scrollTop( 0 );
-      }
-      */
       $("#tags").autocomplete({
         source: function(request, response) {
           var results = []
@@ -34,55 +29,35 @@
               var itemToAdd = {
                 value : item,
                 label : item,
-              } 
+              }
               results.push(itemToAdd);
-            });               
+            });
             return response(results);
           });
         }
       });
     });
-
-/*    window.onload = function() {
-      $("#tags").keyup(function(e) {
-          get_autoComplete($('#tags').val())
-      });
-
-      
-    } 
-    */
-
   </script>
 
   <style>
     #nav-submit{
       background-color: #8e44ad;
-      ;
     }
-
 
     #banner {
       border-bottom: 3px solid #8e44ad;
     }
-
-
   </style>
-
-
-
 </head>
 
 <body>
 
   <% include banner %>
 
-
   <div id="submit_description">
-
-
     <h2>Interested in submitting your project?</h2>
 
-    <p>Made At Penn is a new initiative by Labs and the Dining Philosophers to showcase projects and startups created and launched by Penn students and alumni. The goal is bring the tech and entrepreneurship community closer by highlighting the work of individuals and groups. 
+    <p>Made At Penn is a new initiative by Labs and the Dining Philosophers to showcase projects and startups created and launched by Penn students and alumni. The goal is bring the tech and entrepreneurship community closer by highlighting the work of individuals and groups.
     </p>
     <br />
   </div>
@@ -91,9 +66,6 @@
     <form action="/post" method="POST">
 
       <div class="rowSpacing">
-       <!---- <div class = "submitFormItem">
-        ---->
-
         <div class ="submitFormItem">
           <div class="submitItemTitle"><label for="app_name" class="whatCalled"> Project Title </label>
             <div class="formSpacing">
@@ -116,9 +88,7 @@
         <div class="contactLabel">
          <input type="text" name="builders" size="80" class="form-control builders" placeholder="Amy Gutman, Dhruv Maheshwari, Jake Noonan ">
         </div>
-      </div>  
-      
-     
+      </div>
     </div>
 
      <div class="contact">
@@ -141,12 +111,11 @@
           <input type="text" name="github" size="20" class="form-control" placeholder="https://github.com/pennappslabs">
         </div>
       </div>
-      <br>  
+      <br>
 
-      
-        <label for="description"> Please write a brief description. (125 character max). </label>
-        <div>
-          <textarea class="desc" type="text" maxlength="125" name="description" size="100" class="form-control" placeholder=""></textarea>
+      <label for="description"> Please write a brief description. (125 character max). </label>
+      <div>
+        <textarea class="desc" type="text" maxlength="125" name="description" size="100" class="form-control" placeholder=""></textarea>
       </div>
       <br>
 
@@ -162,7 +131,6 @@
       <br />
 
       <input type="hidden" name="approved" size="40" class="form-control" value ="0" >
-      
       <button type="submit" id="pennlabs-submit" class="btn btn-default"> Submit </button>
 
     </form>
