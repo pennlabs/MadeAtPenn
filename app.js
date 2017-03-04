@@ -7,11 +7,11 @@ var User = require('./models/users.js').User;
 require('dotenv').config()
 
 var mongoURI = process.env.MONGO_URI
-mongoose.connect(mongoURI, function(err, res) {
+mongoose.connect(mongoURI, function(err) {
   if (err) {
     console.log('ERROR connecting to: ' + mongoURI + '. ' + err);
   } else {
-    console.log('Succeeded connected to: ' + mongoURI);
+    console.log('Succeeded connected to MongoDB');
   }
 });
 
