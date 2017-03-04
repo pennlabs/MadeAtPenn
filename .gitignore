@@ -1,3 +1,6 @@
+# Configuration
+.env
+
 ### OSX ###
 .DS_Store
 .AppleDouble
