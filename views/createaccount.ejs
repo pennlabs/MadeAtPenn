@@ -7,37 +7,24 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Create Account</title>
-
-
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900italic' rel='stylesheet' type='text/css'>
         <!-- Bootstrap core CSS -->
     <link href="/bootstrap.css" rel="stylesheet">
-
-
-     <link href="/style.css" rel="stylesheet" type="text/css">
-
+    <link href="/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.9.1.js"></script>
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <script>
- 
-    </script>
-
   </head>
 
   <body>
-
   <% include banner %>
   <h1> Create Your Account </h1>
 
-  <form action="/create_account"  method="post">
+  <form action="/create_account" method="post">
     <input type="text" name="username" />
     <input type="password" name="password" />
     <input type="submit" value="submit" />
   </form>
-
-    <% include footer %>
-
-
+  <% include footer %>
   </body>
-  </html>
+</html>
