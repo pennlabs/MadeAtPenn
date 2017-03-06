@@ -40,21 +40,20 @@
         });
     });
 
-      $(document).ready(function(e){ 
-          $('.project').hover( 
-            function () {
-                  $(this).find('.app_description').fadeIn('fast');
-              },
-            function () {
-                  $(this).find('.app_description').fadeOut('fast');
-            })
-          $('.view').hover(
+     $(document).ready(function(e){
+         $('.project').hover(
              function () {
-                  $(this).toggleClass('view-background');
+                 $(this).find('.app_description').fadeIn('fast');
+             },
+             function () {
+                 $(this).find('.app_description').fadeOut('fast');
+             })
+         $('.view').hover(
+             function () {
+                 $(this).toggleClass('view-background');
              }
-            )
-
-    });
+         )
+     });
 
     </script>
 

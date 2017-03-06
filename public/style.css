@@ -338,10 +338,10 @@ body {
 .view {
   display: inline-block;
   text-decoration: none;
-  margin: auto 24px;
+  margin: auto 14px;
   border:2px solid white;
   border-radius: 10px;
-  width: 100px;
+  width: 120px;
   padding: 10px;
   text-align: center;
 }
